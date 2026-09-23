@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WEB HUB</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:#07090d;
+    color:#f1f3f7;
+    font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    height:72px;
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    background:rgba(7,9,13,.86);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.header-inner{
+    max-width:1250px;
+    height:100%;
+    margin:auto;
+    padding:0 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.logo-icon{
+    width:36px;
+    height:36px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:linear-gradient(
+        135deg,
+        #6573ff,
+        #9c62ff
+    );
+
+    box-shadow:
+        0 0 25px rgba(104,105,255,.35);
+}
+
+.header-right{
+    color:#687181;
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    max-width:1250px;
+    margin:auto;
+
+    padding:85px 24px 55px;
+}
+
+.hero h1{
+    margin:0;
+
+    font-size:
+        clamp(55px,8vw,90px);
+
+    line-height:.9;
+    letter-spacing:-5px;
+}
+
+.hero h1 span{
+    color:#7884ff;
+}
+
+.hero p{
+    margin-top:24px;
+
+    max-width:650px;
+
+    color:#7e8797;
+
+    font-size:14px;
+    line-height:1.8;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+main{
+    max-width:1250px;
+    margin:auto;
+
+    padding:0 24px 80px;
+}
+
+.section{
+    margin-top:45px;
+}
+
+.section-header{
+    display:flex;
+    align-items:end;
+    gap:12px;
+
+    margin-bottom:16px;
+}
+
+.section-header h2{
+    margin:0;
+
+    font-size:22px;
+}
+
+.section-header span{
+    color:#596271;
+    font-size:11px;
+}
+
+/* =========================
+   SITE GRID
+========================= */
+
+.site-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+/* =========================
+   SITE CARD
+========================= */
+
+.site-card{
+    min-height:245px;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.018)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.075);
+
+    transition:
+        transform .2s,
+        border-color .2s,
+        background .2s;
+}
+
+.site-card:hover{
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(119,132,255,.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(119,132,255,.10),
+            rgba(255,255,255,.025)
+        );
+}
+
+.site-icon{
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.055);
+
+    font-size:24px;
+}
+
+.site-card h3{
+    margin:19px 0 8px;
+
+    font-size:21px;
+}
+
+.site-description{
+    min-height:48px;
+
+    color:#7d8695;
+
+    font-size:13px;
+    line-height:1.65;
+}
+
+.site-info{
+    margin-top:17px;
+
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.tag{
+    padding:5px 8px;
+
+    border-radius:7px;
+
+    background:rgba(255,255,255,.045);
+
+    color:#8c95a5;
+
+    font-size:10px;
+}
+
+.site-bottom{
+    margin-top:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.status{
+    color:#55d98d;
+
+    font-size:10px;
+}
+
+.go{
+    color:#8792ff;
+
+    text-decoration:none;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+.go:hover{
+    color:white;
+}
+
+/* =========================
+   EMPTY SLOT
+========================= */
+
+.empty-card{
+    min-height:245px;
+
+    border-radius:20px;
+
+    border:
+        1px dashed rgba(255,255,255,.045);
+
+    background:
+        rgba(255,255,255,.008);
+}
+
+/* =========================
+   PATCH
+========================= */
+
+.patch-section{
+    margin-top:70px;
+}
+
+.patch-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.patch-card{
+    min-height:145px;
+
+    padding:20px;
+
+    border-radius:17px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(255,255,255,.06);
+}
+
+.patch-label{
+    color:#7884ff;
+
+    font-size:10px;
+    font-weight:bold;
+
+    letter-spacing:.8px;
+}
+
+.patch-card h3{
+    margin:10px 0 13px;
+
+    font-size:16px;
+}
+
+.patch-card p{
+    margin:0;
+
+    color:#747d8d;
+
+    font-size:12px;
+    line-height:1.7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:35px 20px 50px;
+
+    text-align:center;
+
+    color:#4f5765;
+
+    font-size:10px;
+
+    border-top:
+        1px solid rgba(255,255,255,.05);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .site-grid,
+    .patch-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:560px){
+
+    header{
+        height:62px;
+    }
+
+    .header-inner{
+        padding:0 17px;
+    }
+
+    .header-right{
+        display:none;
+    }
+
+    .hero{
+        padding:60px 18px 45px;
+    }
+
+    .hero h1{
+        font-size:56px;
+        letter-spacing:-4px;
+    }
+
+    main{
+        padding:
+            0 18px 60px;
+    }
+
+    .site-grid,
+    .patch-grid{
+        grid-template-columns:1fr;
+    }
+
+    .empty-card{
+        display:none;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-inner">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                W
+            </div>
+
+            WEB HUB
+
+        </div>
+
+        <div class="header-right">
+            PROJECT PORTAL
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <h1>
+        WEB<br>
+        <span>HUB</span>
+    </h1>
+
+    <p>
+        A central hub for exploring and accessing
+        web projects, experiments, and interactive experiences.
+    </p>
+
+</section>
+
+
+<main>
+
+
+<!-- =========================
+     정식 출시
+========================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            정식 출시
+        </h2>
+
+        <span>
+            RELEASE
+        </span>
+
+    </div>
+
+
+    <div class="site-grid">
+
+
+        <!-- CoinLab -->
+
+        <article class="site-card">
+
+            <div class="site-icon">
+                🪙
+            </div>
+
+            <h3>
+                CoinLab
+            </h3>
+
+            <div class="site-description">
+                가상의 코인을 이용해 투자와 배팅을 체험하는
+                인터랙티브 시뮬레이션 웹.
+            </div>
+
+            <div class="site-info">
+
+                <span class="tag">
+                    SIMULATION
+                </span>
+
+                <span class="tag">
+                    GAME
+                </span>
+
+                <span class="tag">
+                    COIN
+                </span>
+
+            </div>
+
+            <div class="site-bottom">
+
+                <span class="status">
+                    ● 정식 서비스
+                </span>
+
+                <a
+                    class="go"
+                    href="https://gamchigam-afk.github.io/slot-random-game-site/"
+                >
+                    바로가기 →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- VANTAGE -->
+
+        <article class="site-card">
+
+            <div class="site-icon">
+                ◈
+            </div>
+
+            <h3>
+                VANTAGE
+            </h3>
+
+            <div class="site-description">
+                FPS 프로젝트와 관련된 인터랙티브 웹 경험.
+                다양한 시스템과 콘텐츠를 체험할 수 있습니다.
+            </div>
+
+            <div class="site-info">
+
+                <span class="tag">
+                    FPS
+                </span>
+
+                <span class="tag">
+                    INTERACTIVE
+                </span>
+
+                <span class="tag">
+                    WEB
+                </span>
+
+            </div>
+
+            <div class="site-bottom">
+
+                <span class="status">
+                    ● 정식 서비스
+                </span>
+
+                <a
+                    class="go"
+                    href="https://gamchigam-afk.github.io/VANTAGE-TREILER/"
+                >
+                    바로가기 →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 빈칸 -->
+
+        <div class="empty-card"></div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     베타 버전
+========================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            베타 버전
+        </h2>
+
+        <span>
+            BETA
+        </span>
+
+    </div>
+
+
+    <div class="site-grid">
+
+        <!-- 현재 비워둠 -->
+
+        <div class="empty-card"></div>
+        <div class="empty-card"></div>
+        <div class="empty-card"></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     알파 버전
+========================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+            알파 버전
+        </h2>
+
+        <span>
+            ALPHA
+        </span>
+
+    </div>
+
+
+    <div class="site-grid">
+
+
+        <!-- Operation Building -->
+
+        <article class="site-card">
+
+            <div class="site-icon">
+                🎯
+            </div>
+
+            <h3>
+                Operation Building
+            </h3>
+
+            <div class="site-description">
+                브라우저에서 플레이하는 FPS 슈팅 프로젝트.
+                건물 내부를 중심으로 전투를 진행합니다.
+            </div>
+
+            <div class="site-info">
+
+                <span class="tag">
+                    FPS
+                </span>
+
+                <span class="tag">
+                    ACTION
+                </span>
+
+                <span class="tag">
+                    ALPHA
+                </span>
+
+            </div>
+
+            <div class="site-bottom">
+
+                <span class="status"
+                      style="color:#ffae52;">
+                    ● 알파 개발
+                </span>
+
+                <a
+                    class="go"
+                    href="https://gamchigam-afk.github.io/VANTAGE-TREILER/"
+                >
+                    바로가기 →
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- 빈칸 -->
+
+        <div class="empty-card"></div>
+        <div class="empty-card"></div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PATCH
+========================= -->
+
+<section class="patch-section">
+
+    <div class="section-header">
+
+        <h2>
+            패치
+        </h2>
+
+        <span>
+            PATCH NOTES
+        </span>
+
+    </div>
+
+
+    <div class="patch-grid">
+
+
+        <!-- 허브 패치 -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                HUB PATCH
+            </div>
+
+            <h3>
+                WEB HUB 초기 버전
+            </h3>
+
+            <p>
+                WEB HUB 공개.
+                정식 / 베타 / 알파 프로젝트를
+                버전별로 구분할 수 있도록 구성.
+            </p>
+
+        </article>
+
+
+        <!-- 정식 버전 -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                RELEASE UPDATE
+            </div>
+
+            <h3>
+                정식 버전 업데이트
+            </h3>
+
+            <p>
+                CoinLab, VANTAGE 정식 프로젝트 등록.
+                각 프로젝트의 바로가기 연결.
+            </p>
+
+        </article>
+
+
+        <!-- 베타 -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                BETA PATCH
+            </div>
+
+            <h3>
+                베타 패치사항
+            </h3>
+
+            <p>
+                베타 프로젝트 영역 추가.
+            </p>
+
+        </article>
+
+
+        <!-- 알파 -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                ALPHA RELEASE
+            </div>
+
+            <h3>
+                알파 출시
+            </h3>
+
+            <p>
+                Operation Building
+                FPS 프로젝트 등록.
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<footer>
+
+    WEB HUB<br>
+    A central portal for web projects.
+
+</footer>
+
+
+</body>
+</html>
