@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WEB HUB v0.3</title>
+<title>WEB HUB v0.4</title>
 
 <style>
 *{box-sizing:border-box;}
@@ -20,14 +20,17 @@ body{
     font-family:Arial,"Noto Sans KR",sans-serif;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header{
     height:72px;
     position:sticky;
     top:0;
     z-index:100;
+
     background:rgba(7,9,13,.86);
     backdrop-filter:blur(18px);
+
     border-bottom:1px solid rgba(255,255,255,.07);
 }
 
@@ -36,6 +39,7 @@ header{
     height:100%;
     margin:auto;
     padding:0 24px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -45,6 +49,7 @@ header{
     display:flex;
     align-items:center;
     gap:11px;
+
     font-size:18px;
     font-weight:800;
     letter-spacing:.5px;
@@ -53,12 +58,17 @@ header{
 .logo-icon{
     width:36px;
     height:36px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     border-radius:11px;
+
     background:linear-gradient(135deg,#6573ff,#9c62ff);
-    box-shadow:0 0 25px rgba(104,105,255,.35);
+
+    box-shadow:
+        0 0 25px rgba(104,105,255,.35);
 }
 
 .header-right{
@@ -67,17 +77,22 @@ header{
     letter-spacing:1px;
 }
 
-/* HERO */
+
+/* ================= HERO ================= */
+
 .hero{
     max-width:1250px;
     margin:auto;
+
     padding:85px 24px 55px;
 }
 
 .hero h1{
     margin:0;
+
     font-size:clamp(55px,8vw,90px);
     line-height:.9;
+
     letter-spacing:-5px;
 }
 
@@ -87,16 +102,22 @@ header{
 
 .hero p{
     margin-top:24px;
+
     max-width:650px;
+
     color:#7e8797;
+
     font-size:14px;
     line-height:1.8;
 }
 
-/* MAIN */
+
+/* ================= MAIN ================= */
+
 main{
     max-width:1250px;
     margin:auto;
+
     padding:0 24px 80px;
 }
 
@@ -107,7 +128,9 @@ main{
 .section-header{
     display:flex;
     align-items:end;
+
     gap:12px;
+
     margin-bottom:16px;
 }
 
@@ -121,16 +144,23 @@ main{
     font-size:11px;
 }
 
-/* PROJECT GRID */
+
+/* ================= PROJECT GRID ================= */
+
 .site-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:15px;
 }
 
 .site-card{
     min-height:245px;
+
     padding:22px;
+
     border-radius:20px;
 
     background:
@@ -151,7 +181,8 @@ main{
 .site-card:hover{
     transform:translateY(-5px);
 
-    border-color:rgba(119,132,255,.45);
+    border-color:
+        rgba(119,132,255,.45);
 
     background:
         linear-gradient(
@@ -170,13 +201,16 @@ main{
     justify-content:center;
 
     border-radius:15px;
-    background:rgba(255,255,255,.055);
+
+    background:
+        rgba(255,255,255,.055);
 
     font-size:24px;
 }
 
 .site-card h3{
     margin:19px 0 8px;
+
     font-size:21px;
 }
 
@@ -184,6 +218,7 @@ main{
     min-height:48px;
 
     color:#7d8695;
+
     font-size:13px;
     line-height:1.65;
 }
@@ -193,6 +228,7 @@ main{
 
     display:flex;
     gap:7px;
+
     flex-wrap:wrap;
 }
 
@@ -201,9 +237,11 @@ main{
 
     border-radius:7px;
 
-    background:rgba(255,255,255,.045);
+    background:
+        rgba(255,255,255,.045);
 
     color:#8c95a5;
+
     font-size:10px;
 }
 
@@ -217,11 +255,13 @@ main{
 
 .status{
     color:#55d98d;
+
     font-size:10px;
 }
 
 .go{
     color:#8792ff;
+
     text-decoration:none;
 
     font-size:12px;
@@ -232,25 +272,34 @@ main{
     color:white;
 }
 
-/* EMPTY */
+
+/* ================= EMPTY ================= */
+
 .empty-card{
     min-height:245px;
 
     border-radius:20px;
 
-    border:1px dashed rgba(255,255,255,.045);
+    border:
+        1px dashed rgba(255,255,255,.045);
 
-    background:rgba(255,255,255,.008);
+    background:
+        rgba(255,255,255,.008);
 }
 
-/* PATCH */
+
+/* ================= PATCH ================= */
+
 .patch-section{
     margin-top:70px;
 }
 
 .patch-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:15px;
 }
 
@@ -261,9 +310,11 @@ main{
 
     border-radius:17px;
 
-    background:rgba(255,255,255,.035);
+    background:
+        rgba(255,255,255,.035);
 
-    border:1px solid rgba(255,255,255,.06);
+    border:
+        1px solid rgba(255,255,255,.06);
 }
 
 .patch-label{
@@ -271,11 +322,13 @@ main{
 
     font-size:10px;
     font-weight:bold;
+
     letter-spacing:.8px;
 }
 
 .patch-card h3{
     margin:10px 0 13px;
+
     font-size:16px;
 }
 
@@ -285,10 +338,13 @@ main{
     color:#747d8d;
 
     font-size:12px;
+
     line-height:1.7;
 }
 
-/* FOOTER */
+
+/* ================= FOOTER ================= */
+
 footer{
     padding:35px 20px 50px;
 
@@ -298,18 +354,25 @@ footer{
 
     font-size:10px;
 
-    border-top:1px solid rgba(255,255,255,.05);
+    border-top:
+        1px solid rgba(255,255,255,.05);
 }
 
-/* RESPONSIVE */
+
+/* ================= TABLET ================= */
+
 @media(max-width:850px){
 
     .site-grid,
     .patch-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
 }
+
+
+/* ================= MOBILE ================= */
 
 @media(max-width:560px){
 
@@ -349,29 +412,42 @@ footer{
     }
 
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- HEADER -->
+
+<!-- ================= HEADER ================= -->
+
 <header>
+
     <div class="header-inner">
 
         <div class="logo">
-            <div class="logo-icon">W</div>
+
+            <div class="logo-icon">
+                W
+            </div>
+
             WEB HUB
+
         </div>
 
         <div class="header-right">
-            WEB HUB v0.3
+            WEB HUB v0.4
         </div>
 
     </div>
+
 </header>
 
 
-<!-- HERO -->
+
+<!-- ================= HERO ================= -->
+
 <section class="hero">
 
     <h1>
@@ -387,27 +463,43 @@ footer{
 </section>
 
 
+
 <main>
 
-<!-- ========================= -->
+
+<!-- ================================================= -->
 <!-- RELEASE -->
-<!-- ========================= -->
+<!-- ================================================= -->
 
 <section class="section">
 
     <div class="section-header">
-        <h2>정식 출시</h2>
-        <span>RELEASE</span>
+
+        <h2>
+            정식 출시
+        </h2>
+
+        <span>
+            RELEASE
+        </span>
+
     </div>
+
 
     <div class="site-grid">
 
-        <!-- CoinLab -->
+
+        <!-- ================= CoinLab ================= -->
+
         <article class="site-card">
 
-            <div class="site-icon">🪙</div>
+            <div class="site-icon">
+                🪙
+            </div>
 
-            <h3>CoinLab</h3>
+            <h3>
+                CoinLab
+            </h3>
 
             <div class="site-description">
                 가상의 코인을 이용해 투자와 배팅을 체험하는
@@ -415,9 +507,19 @@ footer{
             </div>
 
             <div class="site-info">
-                <span class="tag">SIMULATION</span>
-                <span class="tag">GAME</span>
-                <span class="tag">COIN</span>
+
+                <span class="tag">
+                    SIMULATION
+                </span>
+
+                <span class="tag">
+                    GAME
+                </span>
+
+                <span class="tag">
+                    COIN
+                </span>
+
             </div>
 
             <div class="site-bottom">
@@ -438,12 +540,18 @@ footer{
         </article>
 
 
-        <!-- VANTAGE -->
+
+        <!-- ================= VANTAGE ================= -->
+
         <article class="site-card">
 
-            <div class="site-icon">◈</div>
+            <div class="site-icon">
+                ◈
+            </div>
 
-            <h3>VANTAGE</h3>
+            <h3>
+                VANTAGE
+            </h3>
 
             <div class="site-description">
                 FPS 프로젝트와 관련된 인터랙티브 웹 경험.
@@ -451,9 +559,19 @@ footer{
             </div>
 
             <div class="site-info">
-                <span class="tag">FPS</span>
-                <span class="tag">INTERACTIVE</span>
-                <span class="tag">WEB</span>
+
+                <span class="tag">
+                    FPS
+                </span>
+
+                <span class="tag">
+                    INTERACTIVE
+                </span>
+
+                <span class="tag">
+                    WEB
+                </span>
+
             </div>
 
             <div class="site-bottom">
@@ -474,33 +592,97 @@ footer{
         </article>
 
 
-        <!-- EMPTY -->
-        <div class="empty-card"></div>
+
+        <!-- ================= 5초 준다 ================= -->
+
+        <article class="site-card">
+
+            <div class="site-icon">
+                ⏱️
+            </div>
+
+            <h3>
+                5초 준다!
+            </h3>
+
+            <div class="site-description">
+                제한된 시간 안에 문제를 해결하는
+                2인용 타이머 게임의 모바일 버전.
+            </div>
+
+            <div class="site-info">
+
+                <span class="tag">
+                    GAME
+                </span>
+
+                <span class="tag">
+                    2 PLAYER
+                </span>
+
+                <span class="tag">
+                    MOBILE
+                </span>
+
+            </div>
+
+            <div class="site-bottom">
+
+                <span class="status">
+                    ● 정식 서비스
+                </span>
+
+                <a
+                    class="go"
+                    href="https://gamchigam-afk.github.io/5second/"
+                >
+                    바로가기 →
+                </a>
+
+            </div>
+
+        </article>
+
 
     </div>
 
 </section>
 
 
-<!-- ========================= -->
+
+<!-- ================================================= -->
 <!-- BETA -->
-<!-- ========================= -->
+<!-- ================================================= -->
 
 <section class="section">
 
     <div class="section-header">
-        <h2>베타 버전</h2>
-        <span>BETA</span>
+
+        <h2>
+            베타 버전
+        </h2>
+
+        <span>
+            BETA
+        </span>
+
     </div>
+
 
     <div class="site-grid">
 
-        <!-- Invest Lab -->
+
+        <!-- ================= Invest Lab ================= -->
+
         <article class="site-card">
 
-            <div class="site-icon">📈</div>
+            <div class="site-icon">
+                📈
+            </div>
 
-            <h3>Invest Lab</h3>
+            <h3>
+                Invest Lab
+            </h3>
 
             <div class="site-description">
                 가상의 자산을 이용해 투자 과정을 체험하고
@@ -508,9 +690,19 @@ footer{
             </div>
 
             <div class="site-info">
-                <span class="tag">INVEST</span>
-                <span class="tag">SIMULATION</span>
-                <span class="tag">BETA</span>
+
+                <span class="tag">
+                    INVEST
+                </span>
+
+                <span class="tag">
+                    SIMULATION
+                </span>
+
+                <span class="tag">
+                    BETA
+                </span>
+
             </div>
 
             <div class="site-bottom">
@@ -534,7 +726,6 @@ footer{
         </article>
 
 
-        <!-- EMPTY -->
         <div class="empty-card"></div>
 
         <div class="empty-card"></div>
@@ -544,25 +735,40 @@ footer{
 </section>
 
 
-<!-- ========================= -->
+
+<!-- ================================================= -->
 <!-- ALPHA -->
-<!-- ========================= -->
+<!-- ================================================= -->
 
 <section class="section">
 
     <div class="section-header">
-        <h2>알파 버전</h2>
-        <span>ALPHA</span>
+
+        <h2>
+            알파 버전
+        </h2>
+
+        <span>
+            ALPHA
+        </span>
+
     </div>
+
 
     <div class="site-grid">
 
-        <!-- Operation Building -->
+
+        <!-- ================= Operation Building ================= -->
+
         <article class="site-card">
 
-            <div class="site-icon">🎯</div>
+            <div class="site-icon">
+                🎯
+            </div>
 
-            <h3>Operation Building</h3>
+            <h3>
+                Operation Building
+            </h3>
 
             <div class="site-description">
                 브라우저에서 플레이하는 FPS 슈팅 프로젝트.
@@ -570,9 +776,19 @@ footer{
             </div>
 
             <div class="site-info">
-                <span class="tag">FPS</span>
-                <span class="tag">ACTION</span>
-                <span class="tag">ALPHA</span>
+
+                <span class="tag">
+                    FPS
+                </span>
+
+                <span class="tag">
+                    ACTION
+                </span>
+
+                <span class="tag">
+                    ALPHA
+                </span>
+
             </div>
 
             <div class="site-bottom">
@@ -596,12 +812,18 @@ footer{
         </article>
 
 
-        <!-- Theme RNG -->
+
+        <!-- ================= Theme RNG ================= -->
+
         <article class="site-card">
 
-            <div class="site-icon">🎨</div>
+            <div class="site-icon">
+                🎨
+            </div>
 
-            <h3>테마 뽑기</h3>
+            <h3>
+                테마 뽑기
+            </h3>
 
             <div class="site-description">
                 다양한 테마를 랜덤으로 획득하고
@@ -609,9 +831,19 @@ footer{
             </div>
 
             <div class="site-info">
-                <span class="tag">RNG</span>
-                <span class="tag">THEME</span>
-                <span class="tag">ALPHA</span>
+
+                <span class="tag">
+                    RNG
+                </span>
+
+                <span class="tag">
+                    THEME
+                </span>
+
+                <span class="tag">
+                    ALPHA
+                </span>
+
             </div>
 
             <div class="site-bottom">
@@ -635,7 +867,7 @@ footer{
         </article>
 
 
-        <!-- EMPTY -->
+
         <div class="empty-card"></div>
 
     </div>
@@ -643,15 +875,18 @@ footer{
 </section>
 
 
-<!-- ========================= -->
+
+<!-- ================================================= -->
 <!-- PATCH NOTES -->
-<!-- ========================= -->
+<!-- ================================================= -->
 
 <section class="patch-section">
 
     <div class="section-header">
 
-        <h2>패치</h2>
+        <h2>
+            패치
+        </h2>
 
         <span>
             PATCH NOTES
@@ -663,7 +898,74 @@ footer{
     <div class="patch-grid">
 
 
-        <!-- v0.3 -->
+        <!-- ================= v0.4 ================= -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                HUB PATCH · v0.4
+            </div>
+
+            <h3>
+                WEB HUB 0.4v 출시
+            </h3>
+
+            <p>
+                WEB HUB 0.4v 출시.
+                새로운 정식 프로젝트
+                「5초 준다! 모바일 버전」을 등록.
+            </p>
+
+        </article>
+
+
+
+        <!-- ================= RELEASE UPDATE ================= -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                RELEASE UPDATE
+            </div>
+
+            <h3>
+                정식 프로젝트 추가
+            </h3>
+
+            <p>
+                5초 준다! 모바일 버전을
+                정식 출시 프로젝트로 등록하고
+                바로가기를 연결.
+            </p>
+
+        </article>
+
+
+
+        <!-- ================= LINK UPDATE ================= -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                LINK UPDATE
+            </div>
+
+            <h3>
+                프로젝트 링크 업데이트
+            </h3>
+
+            <p>
+                CoinLab과 VANTAGE,
+                Operation Building의
+                최신 프로젝트 주소를 적용.
+            </p>
+
+        </article>
+
+
+
+        <!-- ================= v0.3 ================= -->
+
         <article class="patch-card">
 
             <div class="patch-label">
@@ -675,15 +977,17 @@ footer{
             </h3>
 
             <p>
-                WEB HUB 0.3v 출시.
                 프로젝트 주소를 최신 주소로 업데이트하고
-                새로운 알파 프로젝트인 테마 뽑기를 등록.
+                새로운 알파 프로젝트인
+                테마 뽑기를 등록.
             </p>
 
         </article>
 
 
-        <!-- Theme -->
+
+        <!-- ================= THEME ================= -->
+
         <article class="patch-card">
 
             <div class="patch-label">
@@ -696,34 +1000,16 @@ footer{
 
             <p>
                 테마 뽑기 프로젝트를
-                WEB HUB 알파 버전에 추가.
+                WEB HUB 알파 버전에 추가하고
                 프로젝트 바로가기를 연결.
             </p>
 
         </article>
 
 
-        <!-- URL UPDATE -->
-        <article class="patch-card">
 
-            <div class="patch-label">
-                LINK UPDATE
-            </div>
+        <!-- ================= v0.2 ================= -->
 
-            <h3>
-                프로젝트 주소 업데이트
-            </h3>
-
-            <p>
-                CoinLab, VANTAGE,
-                Operation Building의
-                프로젝트 바로가기를 최신 주소로 변경.
-            </p>
-
-        </article>
-
-
-        <!-- v0.2 -->
         <article class="patch-card">
 
             <div class="patch-label">
@@ -743,7 +1029,9 @@ footer{
         </article>
 
 
-        <!-- RELEASE -->
+
+        <!-- ================= RELEASE ================= -->
+
         <article class="patch-card">
 
             <div class="patch-label">
@@ -763,7 +1051,9 @@ footer{
         </article>
 
 
-        <!-- BETA -->
+
+        <!-- ================= BETA ================= -->
+
         <article class="patch-card">
 
             <div class="patch-label">
@@ -782,7 +1072,9 @@ footer{
         </article>
 
 
-        <!-- ALPHA -->
+
+        <!-- ================= ALPHA ================= -->
+
         <article class="patch-card">
 
             <div class="patch-label">
@@ -800,17 +1092,21 @@ footer{
 
         </article>
 
+
     </div>
 
 </section>
 
+
 </main>
 
 
-<!-- FOOTER -->
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-    WEB HUB v0.3<br>
+    WEB HUB v0.4<br>
 
     A central portal for web projects.
 
