@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WEB HUB v0.6</title>
+<title>WEB HUB v0.7</title>
 
 <style>
 *{box-sizing:border-box;}
@@ -118,9 +118,17 @@ main{
     font-size:11px;
 }
 
+/* 기본 3칸 */
 .site-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+/* 정식 출시 4칸 */
+.release-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
     gap:15px;
 }
 
@@ -128,13 +136,16 @@ main{
     min-height:245px;
     padding:22px;
     border-radius:20px;
+
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.055),
             rgba(255,255,255,.018)
         );
+
     border:1px solid rgba(255,255,255,.075);
+
     transition:
         transform .2s,
         border-color .2s,
@@ -143,7 +154,9 @@ main{
 
 .site-card:hover{
     transform:translateY(-5px);
+
     border-color:rgba(119,132,255,.45);
+
     background:
         linear-gradient(
             145deg,
@@ -155,11 +168,15 @@ main{
 .site-icon{
     width:52px;
     height:52px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     border-radius:15px;
+
     background:rgba(255,255,255,.055);
+
     font-size:24px;
 }
 
@@ -170,13 +187,16 @@ main{
 
 .site-description{
     min-height:48px;
+
     color:#7d8695;
+
     font-size:13px;
     line-height:1.65;
 }
 
 .site-info{
     margin-top:17px;
+
     display:flex;
     gap:7px;
     flex-wrap:wrap;
@@ -184,14 +204,19 @@ main{
 
 .tag{
     padding:5px 8px;
+
     border-radius:7px;
+
     background:rgba(255,255,255,.045);
+
     color:#8c95a5;
+
     font-size:10px;
 }
 
 .site-bottom{
     margin-top:20px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -205,6 +230,7 @@ main{
 .go{
     color:#8792ff;
     text-decoration:none;
+
     font-size:12px;
     font-weight:bold;
 }
@@ -215,8 +241,11 @@ main{
 
 .empty-card{
     min-height:245px;
+
     border-radius:20px;
+
     border:1px dashed rgba(255,255,255,.045);
+
     background:rgba(255,255,255,.008);
 }
 
@@ -232,14 +261,19 @@ main{
 
 .patch-card{
     min-height:145px;
+
     padding:20px;
+
     border-radius:17px;
+
     background:rgba(255,255,255,.035);
+
     border:1px solid rgba(255,255,255,.06);
 }
 
 .patch-label{
     color:#7884ff;
+
     font-size:10px;
     font-weight:bold;
     letter-spacing:.8px;
@@ -252,27 +286,48 @@ main{
 
 .patch-card p{
     margin:0;
+
     color:#747d8d;
+
     font-size:12px;
     line-height:1.7;
 }
 
 footer{
     padding:35px 20px 50px;
+
     text-align:center;
+
     color:#4f5765;
+
     font-size:10px;
+
     border-top:1px solid rgba(255,255,255,.05);
 }
 
+@media(max-width:1050px){
+
+    .release-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
 @media(max-width:850px){
+
     .site-grid,
     .patch-grid{
         grid-template-columns:repeat(2,1fr);
     }
+
+    .release-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
 }
 
 @media(max-width:560px){
+
     header{
         height:62px;
     }
@@ -282,7 +337,6 @@ footer{
     }
 
     .header-right{
-        display:block;
         font-size:9px;
     }
 
@@ -300,6 +354,7 @@ footer{
     }
 
     .site-grid,
+    .release-grid,
     .patch-grid{
         grid-template-columns:1fr;
     }
@@ -307,6 +362,7 @@ footer{
     .empty-card{
         display:none;
     }
+
 }
 </style>
 </head>
@@ -314,6 +370,7 @@ footer{
 <body>
 
 <header>
+
     <div class="header-inner">
 
         <div class="logo">
@@ -322,10 +379,11 @@ footer{
         </div>
 
         <div class="header-right">
-            WEB HUB v0.6
+            WEB HUB v0.7
         </div>
 
     </div>
+
 </header>
 
 
@@ -347,7 +405,9 @@ footer{
 <main>
 
 
-<!-- ================= RELEASE ================= -->
+<!-- ================================================= -->
+<!-- RELEASE -->
+<!-- ================================================= -->
 
 <section class="section">
 
@@ -356,7 +416,10 @@ footer{
         <span>RELEASE</span>
     </div>
 
-    <div class="site-grid">
+    <div class="release-grid">
+
+
+        <!-- CoinLab -->
 
         <article class="site-card">
 
@@ -393,6 +456,8 @@ footer{
         </article>
 
 
+        <!-- VANTAGE -->
+
         <article class="site-card">
 
             <div class="site-icon">◈</div>
@@ -428,6 +493,8 @@ footer{
         </article>
 
 
+        <!-- 5초 준다 -->
+
         <article class="site-card">
 
             <div class="site-icon">⏱️</div>
@@ -462,12 +529,52 @@ footer{
 
         </article>
 
+
+        <!-- D-day -->
+
+        <article class="site-card">
+
+            <div class="site-icon">📅</div>
+
+            <h3>D-day</h3>
+
+            <div class="site-description">
+                중요한 날짜와 기념일을 확인하고
+                남은 시간과 지난 시간을 한눈에 볼 수 있는 디데이 웹.
+            </div>
+
+            <div class="site-info">
+                <span class="tag">D-DAY</span>
+                <span class="tag">UTILITY</span>
+                <span class="tag">DATE</span>
+            </div>
+
+            <div class="site-bottom">
+
+                <span class="status">
+                    ● 정식 서비스
+                </span>
+
+                <a
+                    class="go"
+                    href="https://gamchigam-afk.github.io/D-day/"
+                >
+                    바로가기 →
+                </a>
+
+            </div>
+
+        </article>
+
+
     </div>
 
 </section>
 
 
-<!-- ================= BETA ================= -->
+<!-- ================================================= -->
+<!-- BETA -->
+<!-- ================================================= -->
 
 <section class="section">
 
@@ -477,6 +584,7 @@ footer{
     </div>
 
     <div class="site-grid">
+
 
         <!-- Invest Lab -->
 
@@ -602,7 +710,9 @@ footer{
 </section>
 
 
-<!-- ================= ALPHA ================= -->
+<!-- ================================================= -->
+<!-- ALPHA -->
+<!-- ================================================= -->
 
 <section class="section">
 
@@ -612,6 +722,9 @@ footer{
     </div>
 
     <div class="site-grid">
+
+
+        <!-- Operation Building -->
 
         <article class="site-card">
 
@@ -652,6 +765,7 @@ footer{
 
 
         <div class="empty-card"></div>
+
         <div class="empty-card"></div>
 
     </div>
@@ -659,7 +773,9 @@ footer{
 </section>
 
 
-<!-- ================= PATCH NOTES ================= -->
+<!-- ================================================= -->
+<!-- PATCH NOTES -->
+<!-- ================================================= -->
 
 <section class="patch-section">
 
@@ -677,6 +793,69 @@ footer{
     <div class="patch-grid">
 
 
+        <!-- v0.7 -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                HUB PATCH · v0.7
+            </div>
+
+            <h3>
+                WEB HUB 0.7v 출시
+            </h3>
+
+            <p>
+                WEB HUB 0.7v 출시.
+                새로운 정식 프로젝트
+                D-day를 등록.
+            </p>
+
+        </article>
+
+
+        <!-- D-day -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                RELEASE UPDATE
+            </div>
+
+            <h3>
+                D-day 정식 출시
+            </h3>
+
+            <p>
+                D-day 프로젝트를
+                정식 출시 영역에 추가하고
+                바로가기를 연결.
+            </p>
+
+        </article>
+
+
+        <!-- Release Expansion -->
+
+        <article class="patch-card">
+
+            <div class="patch-label">
+                RELEASE EXPANSION
+            </div>
+
+            <h3>
+                정식 프로젝트 4종
+            </h3>
+
+            <p>
+                CoinLab, VANTAGE,
+                5초 준다!, D-day로
+                정식 프로젝트 라인업을 확장.
+            </p>
+
+        </article>
+
+
         <!-- v0.6 -->
 
         <article class="patch-card">
@@ -690,7 +869,6 @@ footer{
             </h3>
 
             <p>
-                WEB HUB 0.6v 출시.
                 새로운 베타 프로젝트
                 Mine을 등록.
             </p>
@@ -719,27 +897,6 @@ footer{
         </article>
 
 
-        <!-- Beta Full -->
-
-        <article class="patch-card">
-
-            <div class="patch-label">
-                BETA UPDATE
-            </div>
-
-            <h3>
-                베타 라인업 업데이트
-            </h3>
-
-            <p>
-                Invest Lab, 테마 뽑기,
-                Mine으로 베타 프로젝트
-                3개 슬롯을 구성.
-            </p>
-
-        </article>
-
-
         <!-- v0.5 -->
 
         <article class="patch-card">
@@ -761,26 +918,6 @@ footer{
         </article>
 
 
-        <!-- Theme Promotion -->
-
-        <article class="patch-card">
-
-            <div class="patch-label">
-                BETA UPDATE
-            </div>
-
-            <h3>
-                테마 뽑기 베타 승급
-            </h3>
-
-            <p>
-                테마 뽑기의 개발 단계를
-                ALPHA에서 BETA로 변경.
-            </p>
-
-        </article>
-
-
         <!-- v0.4 -->
 
         <article class="patch-card">
@@ -795,8 +932,8 @@ footer{
 
             <p>
                 새로운 정식 프로젝트
-                「5초 준다! 모바일 버전」을
-                정식 출시 영역에 등록.
+                5초 준다! 모바일 버전을
+                등록.
             </p>
 
         </article>
@@ -844,26 +981,6 @@ footer{
         </article>
 
 
-        <!-- HUB RELEASE -->
-
-        <article class="patch-card">
-
-            <div class="patch-label">
-                HUB RELEASE
-            </div>
-
-            <h3>
-                WEB HUB 프로젝트 시작
-            </h3>
-
-            <p>
-                여러 웹 프로젝트를 한곳에서
-                확인하고 이동할 수 있는
-                WEB HUB를 구축.
-            </p>
-
-        </article>
-
     </div>
 
 </section>
@@ -873,7 +990,7 @@ footer{
 
 <footer>
 
-    WEB HUB v0.6<br>
+    WEB HUB v0.7<br>
     A central portal for web projects.
 
 </footer>
