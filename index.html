@@ -3,365 +3,630 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WEB HUB v0.7</title>
+<title>WEB HUB</title>
 
 <style>
-*{box-sizing:border-box;}
+*{
+  box-sizing:border-box;
+}
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
-    background:#07090d;
-    color:#f1f3f7;
-    font-family:Arial,"Noto Sans KR",sans-serif;
+  margin:0;
+  background:#17191f;
+  color:#e8e9ed;
+  font-family:Arial,"Noto Sans KR",sans-serif;
+  overflow-x:hidden;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 header{
-    height:72px;
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:rgba(7,9,13,.86);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.07);
+  height:64px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#17191f;
+  border-bottom:1px solid #292c34;
 }
 
 .header-inner{
-    max-width:1250px;
-    height:100%;
-    margin:auto;
-    padding:0 24px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+  height:100%;
+  max-width:1450px;
+  margin:auto;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  gap:30px;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    font-size:18px;
-    font-weight:800;
-    letter-spacing:.5px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-weight:800;
+  letter-spacing:-.5px;
+  white-space:nowrap;
 }
 
 .logo-icon{
-    width:36px;
-    height:36px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:11px;
-    background:linear-gradient(135deg,#6573ff,#9c62ff);
-    box-shadow:0 0 25px rgba(104,105,255,.35);
+  width:34px;
+  height:34px;
+  border-radius:8px;
+  background:linear-gradient(135deg,#6575ff,#9b5cff);
+  display:grid;
+  place-items:center;
+  font-size:17px;
+  box-shadow:0 5px 20px rgba(110,100,255,.25);
 }
 
-.header-right{
-    color:#687181;
-    font-size:11px;
-    letter-spacing:1px;
+.search{
+  width:300px;
+  height:36px;
+  border:1px solid #30333b;
+  background:#0f1115;
+  color:white;
+  border-radius:4px;
+  padding:0 14px;
+  outline:none;
+  transition:.2s;
 }
 
-.hero{
-    max-width:1250px;
-    margin:auto;
-    padding:85px 24px 55px;
+.search:focus{
+  border-color:#6c78ff;
+  box-shadow:0 0 0 2px rgba(108,120,255,.12);
 }
 
-.hero h1{
-    margin:0;
-    font-size:clamp(55px,8vw,90px);
-    line-height:.9;
-    letter-spacing:-5px;
+.version{
+  margin-left:auto;
+  font-size:12px;
+  color:#858a96;
 }
 
-.hero h1 span{
-    color:#7884ff;
+/* =========================
+   LAYOUT
+========================= */
+
+.app{
+  max-width:1450px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:210px 1fr;
+  min-height:calc(100vh - 64px);
 }
 
-.hero p{
-    margin-top:24px;
-    max-width:650px;
-    color:#7e8797;
-    font-size:14px;
-    line-height:1.8;
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+  padding:28px 14px;
+  border-right:1px solid #292c34;
+  min-height:calc(100vh - 64px);
 }
 
-main{
-    max-width:1250px;
-    margin:auto;
-    padding:0 24px 80px;
+.side-title{
+  padding:0 12px 12px;
+  font-size:11px;
+  color:#707580;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
 }
+
+.nav-item{
+  width:100%;
+  padding:12px;
+  border-radius:4px;
+  color:#aaaeb8;
+  font-size:14px;
+  cursor:pointer;
+  transition:.18s;
+  margin-bottom:3px;
+}
+
+.nav-item:hover{
+  background:#23262d;
+  color:white;
+}
+
+.nav-item.active{
+  background:#2a2e37;
+  color:white;
+  box-shadow:inset 3px 0 #7480ff;
+}
+
+.nav-item span{
+  display:inline-block;
+  width:25px;
+  opacity:.8;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content{
+  padding:32px 36px 70px;
+  min-width:0;
+}
+
+.page-title{
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:25px;
+  letter-spacing:-1px;
+}
+
+/* =========================
+   FEATURED
+========================= */
+
+.featured{
+  min-height:285px;
+  border-radius:5px;
+  overflow:hidden;
+  position:relative;
+  margin-bottom:38px;
+  background:
+    radial-gradient(circle at 80% 30%,rgba(111,124,255,.35),transparent 35%),
+    linear-gradient(120deg,#20242e,#14161b);
+  border:1px solid #30343e;
+}
+
+.featured::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,
+      rgba(18,20,25,.98) 0%,
+      rgba(18,20,25,.84) 35%,
+      rgba(18,20,25,.15) 100%);
+  pointer-events:none;
+}
+
+.featured-content{
+  position:relative;
+  z-index:2;
+  padding:48px;
+  max-width:600px;
+}
+
+.featured-small{
+  color:#8b94ff;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:1.5px;
+  margin-bottom:10px;
+}
+
+.featured h1{
+  margin:0 0 13px;
+  font-size:43px;
+  letter-spacing:-2px;
+}
+
+.featured p{
+  color:#aeb2bb;
+  font-size:14px;
+  line-height:1.7;
+  margin:0 0 24px;
+}
+
+.launch{
+  display:inline-block;
+  color:#fff;
+  text-decoration:none;
+  background:#6673ff;
+  padding:11px 19px;
+  border-radius:3px;
+  font-size:13px;
+  font-weight:bold;
+  transition:.2s;
+}
+
+.launch:hover{
+  background:#7a85ff;
+  transform:translateY(-1px);
+}
+
+/* =========================
+   SECTION
+========================= */
 
 .section{
-    margin-top:45px;
+  margin-bottom:45px;
 }
 
 .section-header{
-    display:flex;
-    align-items:end;
-    gap:12px;
-    margin-bottom:16px;
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  margin-bottom:15px;
 }
 
-.section-header h2{
-    margin:0;
-    font-size:22px;
+.section-title{
+  font-size:20px;
+  font-weight:bold;
 }
 
-.section-header span{
-    color:#596271;
-    font-size:11px;
+.section-sub{
+  font-size:11px;
+  color:#6f7480;
+  margin-top:4px;
 }
 
-/* 기본 3칸 */
-.site-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
+.section-count{
+  font-size:12px;
+  color:#777c87;
 }
 
-/* 정식 출시 4칸 */
-.release-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+/* =========================
+   GAME LIBRARY
+========================= */
+
+.library{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 
-.site-card{
-    min-height:245px;
-    padding:22px;
-    border-radius:20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.018)
-        );
-
-    border:1px solid rgba(255,255,255,.075);
-
-    transition:
-        transform .2s,
-        border-color .2s,
-        background .2s;
+.game{
+  min-height:118px;
+  display:grid;
+  grid-template-columns:120px 1fr auto;
+  gap:20px;
+  align-items:center;
+  padding:13px;
+  background:#202329;
+  border:1px solid #2b2e35;
+  border-radius:4px;
+  transition:.2s;
 }
 
-.site-card:hover{
-    transform:translateY(-5px);
-
-    border-color:rgba(119,132,255,.45);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(119,132,255,.10),
-            rgba(255,255,255,.025)
-        );
+.game:hover{
+  background:#272a31;
+  border-color:#414650;
+  transform:translateX(3px);
 }
 
-.site-icon{
-    width:52px;
-    height:52px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.055);
-
-    font-size:24px;
+.game-cover{
+  width:120px;
+  height:88px;
+  border-radius:3px;
+  display:grid;
+  place-items:center;
+  font-size:24px;
+  font-weight:900;
+  color:white;
+  background:linear-gradient(135deg,#32394c,#5968b5);
+  overflow:hidden;
+  position:relative;
 }
 
-.site-card h3{
-    margin:19px 0 8px;
-    font-size:21px;
+.game-cover::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg,
+      transparent 35%,
+      rgba(255,255,255,.08) 36%,
+      transparent 60%);
 }
 
-.site-description{
-    min-height:48px;
-
-    color:#7d8695;
-
-    font-size:13px;
-    line-height:1.65;
+.cover-coin{
+  background:linear-gradient(135deg,#343b55,#6d75e8);
 }
 
-.site-info{
-    margin-top:17px;
+.cover-vantage{
+  background:linear-gradient(135deg,#1a2029,#536a85);
+}
 
-    display:flex;
-    gap:7px;
-    flex-wrap:wrap;
+.cover-five{
+  background:linear-gradient(135deg,#35304b,#855ee8);
+}
+
+.cover-dday{
+  background:linear-gradient(135deg,#293743,#5085a8);
+}
+
+.cover-invest{
+  background:linear-gradient(135deg,#1d4437,#318c6c);
+}
+
+.cover-theme{
+  background:linear-gradient(135deg,#4b285c,#ae62d1);
+}
+
+.cover-mine{
+  background:linear-gradient(135deg,#493723,#927043);
+}
+
+.cover-fps{
+  background:linear-gradient(135deg,#302f2f,#756a63);
+}
+
+.game-info{
+  min-width:0;
+}
+
+.game-title{
+  font-size:17px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.game-desc{
+  color:#969ba6;
+  font-size:12px;
+  line-height:1.55;
+  max-width:680px;
+}
+
+.tags{
+  margin-top:9px;
+  display:flex;
+  gap:5px;
+  flex-wrap:wrap;
 }
 
 .tag{
-    padding:5px 8px;
-
-    border-radius:7px;
-
-    background:rgba(255,255,255,.045);
-
-    color:#8c95a5;
-
-    font-size:10px;
-}
-
-.site-bottom{
-    margin-top:20px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+  padding:4px 7px;
+  border-radius:3px;
+  background:#17191e;
+  color:#727783;
+  font-size:9px;
+  letter-spacing:.5px;
 }
 
 .status{
-    color:#55d98d;
-    font-size:10px;
+  font-size:11px;
+  margin-top:10px;
 }
 
-.go{
-    color:#8792ff;
-    text-decoration:none;
-
-    font-size:12px;
-    font-weight:bold;
+.status.release{
+  color:#72d49a;
 }
 
-.go:hover{
-    color:white;
+.status.beta{
+  color:#6ea8ff;
 }
 
-.empty-card{
-    min-height:245px;
-
-    border-radius:20px;
-
-    border:1px dashed rgba(255,255,255,.045);
-
-    background:rgba(255,255,255,.008);
+.status.alpha{
+  color:#f0a866;
 }
+
+.game-action{
+  padding-right:15px;
+}
+
+.play{
+  color:#c5c9d1;
+  text-decoration:none;
+  font-size:12px;
+  white-space:nowrap;
+  transition:.2s;
+}
+
+.play:hover{
+  color:white;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+  min-height:90px;
+  border:1px dashed #343840;
+  border-radius:4px;
+  display:grid;
+  place-items:center;
+  color:#555a64;
+  font-size:12px;
+}
+
+/* =========================
+   PATCH
+========================= */
 
 .patch-section{
-    margin-top:70px;
+  margin-top:55px;
 }
 
 .patch-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
 }
 
-.patch-card{
-    min-height:145px;
-
-    padding:20px;
-
-    border-radius:17px;
-
-    background:rgba(255,255,255,.035);
-
-    border:1px solid rgba(255,255,255,.06);
+.patch{
+  background:#202329;
+  border:1px solid #2b2e35;
+  padding:18px;
+  border-radius:4px;
+  min-height:130px;
 }
 
-.patch-label{
-    color:#7884ff;
-
-    font-size:10px;
-    font-weight:bold;
-    letter-spacing:.8px;
+.patch-type{
+  color:#7884ff;
+  font-size:9px;
+  font-weight:bold;
+  letter-spacing:1.2px;
+  margin-bottom:12px;
 }
 
-.patch-card h3{
-    margin:10px 0 13px;
-    font-size:16px;
+.patch h3{
+  margin:0 0 8px;
+  font-size:14px;
 }
 
-.patch-card p{
-    margin:0;
-
-    color:#747d8d;
-
-    font-size:12px;
-    line-height:1.7;
+.patch p{
+  margin:0;
+  color:#858a95;
+  font-size:11px;
+  line-height:1.6;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    padding:35px 20px 50px;
-
-    text-align:center;
-
-    color:#4f5765;
-
-    font-size:10px;
-
-    border-top:1px solid rgba(255,255,255,.05);
+  border-top:1px solid #292c34;
+  margin-top:30px;
+  padding:28px 0;
+  color:#5e636e;
+  font-size:11px;
+  text-align:center;
 }
 
-@media(max-width:1050px){
+/* =========================
+   SEARCH
+========================= */
 
-    .release-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+.game.hidden{
+  display:none;
+}
+
+.no-result{
+  display:none;
+  color:#666b75;
+  text-align:center;
+  padding:40px;
+  font-size:13px;
+}
+
+.no-result.show{
+  display:block;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+  .app{
+    grid-template-columns:170px 1fr;
+  }
+
+  .content{
+    padding:28px 22px 60px;
+  }
+
+  .patch-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .featured-content{
+    padding:35px;
+  }
 
 }
 
-@media(max-width:850px){
+@media(max-width:680px){
 
-    .site-grid,
-    .patch-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+  header{
+    height:auto;
+  }
 
-    .release-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+  .header-inner{
+    padding:12px 15px;
+    flex-wrap:wrap;
+  }
+
+  .search{
+    order:3;
+    width:100%;
+  }
+
+  .version{
+    margin-left:auto;
+  }
+
+  .app{
+    display:block;
+  }
+
+  .sidebar{
+    min-height:auto;
+    border-right:none;
+    border-bottom:1px solid #292c34;
+    padding:8px;
+    display:flex;
+    overflow-x:auto;
+    gap:3px;
+  }
+
+  .side-title{
+    display:none;
+  }
+
+  .nav-item{
+    white-space:nowrap;
+    width:auto;
+    margin:0;
+  }
+
+  .content{
+    padding:24px 15px 50px;
+  }
+
+  .featured{
+    min-height:300px;
+  }
+
+  .featured-content{
+    padding:30px 25px;
+  }
+
+  .featured h1{
+    font-size:34px;
+  }
+
+  .game{
+    grid-template-columns:90px 1fr;
+    gap:14px;
+  }
+
+  .game-cover{
+    width:90px;
+    height:70px;
+    font-size:18px;
+  }
+
+  .game-action{
+    grid-column:2;
+    padding:0;
+    margin-top:-8px;
+  }
+
+  .patch-grid{
+    grid-template-columns:1fr;
+  }
 
 }
 
-@media(max-width:560px){
+@media(max-width:430px){
 
-    header{
-        height:62px;
-    }
+  .game-desc{
+    display:none;
+  }
 
-    .header-inner{
-        padding:0 17px;
-    }
+  .tags{
+    display:none;
+  }
 
-    .header-right{
-        font-size:9px;
-    }
-
-    .hero{
-        padding:60px 18px 45px;
-    }
-
-    .hero h1{
-        font-size:56px;
-        letter-spacing:-4px;
-    }
-
-    main{
-        padding:0 18px 60px;
-    }
-
-    .site-grid,
-    .release-grid,
-    .patch-grid{
-        grid-template-columns:1fr;
-    }
-
-    .empty-card{
-        display:none;
-    }
+  .game{
+    min-height:100px;
+  }
 
 }
 </style>
@@ -370,630 +635,740 @@ footer{
 <body>
 
 <header>
+  <div class="header-inner">
 
-    <div class="header-inner">
-
-        <div class="logo">
-            <div class="logo-icon">W</div>
-            WEB HUB
-        </div>
-
-        <div class="header-right">
-            WEB HUB v0.7
-        </div>
-
+    <div class="logo">
+      <div class="logo-icon">W</div>
+      <span>WEB HUB</span>
     </div>
 
+    <input
+      id="search"
+      class="search"
+      type="text"
+      placeholder="프로젝트 검색..."
+    >
+
+    <div class="version">WEB HUB v0.8</div>
+
+  </div>
 </header>
 
 
-<section class="hero">
+<div class="app">
 
-    <h1>
-        WEB<br>
-        <span>HUB</span>
-    </h1>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
 
-    <p>
-        A central hub for exploring and accessing
-        web projects, experiments, and interactive experiences.
-    </p>
+    <div class="side-title">LIBRARY</div>
 
-</section>
-
-
-<main>
-
-
-<!-- ================================================= -->
-<!-- RELEASE -->
-<!-- ================================================= -->
-
-<section class="section">
-
-    <div class="section-header">
-        <h2>정식 출시</h2>
-        <span>RELEASE</span>
+    <div class="nav-item active" data-filter="all">
+      <span>▦</span> 전체
     </div>
 
-    <div class="release-grid">
+    <div class="nav-item" data-filter="release">
+      <span>●</span> 정식 출시
+    </div>
+
+    <div class="nav-item" data-filter="beta">
+      <span>◆</span> 베타 버전
+    </div>
+
+    <div class="nav-item" data-filter="alpha">
+      <span>◇</span> 알파 버전
+    </div>
+
+    <div class="side-title" style="margin-top:25px;">
+      HUB
+    </div>
+
+    <div class="nav-item" data-scroll="patch">
+      <span>▤</span> 패치 노트
+    </div>
+
+  </aside>
 
 
-        <!-- CoinLab -->
+  <!-- MAIN -->
+  <main class="content">
 
-        <article class="site-card">
+    <div class="page-title">라이브러리</div>
 
-            <div class="site-icon">🪙</div>
 
-            <h3>CoinLab</h3>
+    <!-- FEATURED -->
+    <section class="featured">
 
-            <div class="site-description">
-                가상의 코인을 이용해 투자와 배팅을 체험하는
-                인터랙티브 시뮬레이션 웹.
+      <div class="featured-content">
+
+        <div class="featured-small">FEATURED PROJECT</div>
+
+        <h1>WEB HUB</h1>
+
+        <p>
+          A central hub for exploring and accessing web projects,
+          experiments, and interactive experiences.
+        </p>
+
+        <a href="#library" class="launch">
+          프로젝트 둘러보기
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <div id="library">
+
+
+      <!-- RELEASE -->
+      <section
+        class="section project-section"
+        data-category="release"
+      >
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-title">정식 출시</div>
+            <div class="section-sub">RELEASE</div>
+          </div>
+
+          <div class="section-count">4 PROJECTS</div>
+
+        </div>
+
+
+        <div class="library">
+
+          <article class="game">
+
+            <div class="game-cover cover-coin">
+              COIN
             </div>
 
-            <div class="site-info">
+            <div class="game-info">
+
+              <div class="game-title">CoinLab</div>
+
+              <div class="game-desc">
+                가상의 코인을 이용해 투자와 배팅을 체험하는 인터랙티브 시뮬레이션 웹.
+              </div>
+
+              <div class="tags">
                 <span class="tag">SIMULATION</span>
                 <span class="tag">GAME</span>
                 <span class="tag">COIN</span>
-            </div>
+              </div>
 
-            <div class="site-bottom">
-
-                <span class="status">
-                    ● 정식 서비스
-                </span>
-
-                <a
-                    class="go"
-                    href="https://gamchigam-afk.github.io/coinlab/"
-                >
-                    바로가기 →
-                </a>
+              <div class="status release">
+                ● 정식 서비스
+              </div>
 
             </div>
 
-        </article>
+            <div class="game-action">
+              <a
+                class="play"
+                href="https://gamchigam-afk.github.io/coinlab/"
+                target="_blank"
+              >
+                실행 →
+              </a>
+            </div>
+
+          </article>
 
 
-        <!-- VANTAGE -->
+          <article class="game">
 
-        <article class="site-card">
+            <div class="game-cover cover-vantage">
+              V
+            </div>
 
-            <div class="site-icon">◈</div>
+            <div class="game-info">
 
-            <h3>VANTAGE</h3>
+              <div class="game-title">VANTAGE</div>
 
-            <div class="site-description">
+              <div class="game-desc">
                 FPS 프로젝트와 관련된 인터랙티브 웹 경험.
                 다양한 시스템과 콘텐츠를 체험할 수 있습니다.
-            </div>
+              </div>
 
-            <div class="site-info">
+              <div class="tags">
                 <span class="tag">FPS</span>
                 <span class="tag">INTERACTIVE</span>
                 <span class="tag">WEB</span>
-            </div>
+              </div>
 
-            <div class="site-bottom">
-
-                <span class="status">
-                    ● 정식 서비스
-                </span>
-
-                <a
-                    class="go"
-                    href="https://gamchigam-afk.github.io/vantage/"
-                >
-                    바로가기 →
-                </a>
+              <div class="status release">
+                ● 정식 서비스
+              </div>
 
             </div>
 
-        </article>
-
-
-        <!-- 5초 준다 -->
-
-        <article class="site-card">
-
-            <div class="site-icon">⏱️</div>
-
-            <h3>5초 준다!</h3>
-
-            <div class="site-description">
-                제한된 시간 안에 문제를 해결하는
-                2인용 타이머 게임의 모바일 버전.
+            <div class="game-action">
+              <a
+                class="play"
+                href="https://gamchigam-afk.github.io/vantage/"
+                target="_blank"
+              >
+                실행 →
+              </a>
             </div>
 
-            <div class="site-info">
+          </article>
+
+
+          <article class="game">
+
+            <div class="game-cover cover-five">
+              5초
+            </div>
+
+            <div class="game-info">
+
+              <div class="game-title">5초 준다!</div>
+
+              <div class="game-desc">
+                제한된 시간 안에 문제를 해결하는 2인용 타이머 게임의 모바일 버전.
+              </div>
+
+              <div class="tags">
                 <span class="tag">GAME</span>
                 <span class="tag">2 PLAYER</span>
                 <span class="tag">MOBILE</span>
-            </div>
+              </div>
 
-            <div class="site-bottom">
-
-                <span class="status">
-                    ● 정식 서비스
-                </span>
-
-                <a
-                    class="go"
-                    href="https://gamchigam-afk.github.io/5second/"
-                >
-                    바로가기 →
-                </a>
+              <div class="status release">
+                ● 정식 서비스
+              </div>
 
             </div>
 
-        </article>
-
-
-        <!-- D-day -->
-
-        <article class="site-card">
-
-            <div class="site-icon">📅</div>
-
-            <h3>D-day</h3>
-
-            <div class="site-description">
-                중요한 날짜와 기념일을 확인하고
-                남은 시간과 지난 시간을 한눈에 볼 수 있는 디데이 웹.
+            <div class="game-action">
+              <a
+                class="play"
+                href="https://gamchigam-afk.github.io/5second/"
+                target="_blank"
+              >
+                실행 →
+              </a>
             </div>
 
-            <div class="site-info">
+          </article>
+
+
+          <article class="game">
+
+            <div class="game-cover cover-dday">
+              D-DAY
+            </div>
+
+            <div class="game-info">
+
+              <div class="game-title">D-day</div>
+
+              <div class="game-desc">
+                중요한 날짜와 기념일을 확인하고 남은 시간과 지난 시간을 한눈에 볼 수 있는 디데이 웹.
+              </div>
+
+              <div class="tags">
                 <span class="tag">D-DAY</span>
                 <span class="tag">UTILITY</span>
                 <span class="tag">DATE</span>
-            </div>
+              </div>
 
-            <div class="site-bottom">
-
-                <span class="status">
-                    ● 정식 서비스
-                </span>
-
-                <a
-                    class="go"
-                    href="https://gamchigam-afk.github.io/D-day/"
-                >
-                    바로가기 →
-                </a>
+              <div class="status release">
+                ● 정식 서비스
+              </div>
 
             </div>
 
-        </article>
-
-
-    </div>
-
-</section>
-
-
-<!-- ================================================= -->
-<!-- BETA -->
-<!-- ================================================= -->
-
-<section class="section">
-
-    <div class="section-header">
-        <h2>베타 버전</h2>
-        <span>BETA</span>
-    </div>
-
-    <div class="site-grid">
-
-
-        <!-- Invest Lab -->
-
-        <article class="site-card">
-
-            <div class="site-icon">📈</div>
-
-            <h3>Invest Lab</h3>
-
-            <div class="site-description">
-                가상의 자산을 이용해 투자 과정을 체험하고
-                다양한 시장 상황을 연습할 수 있는 투자 시뮬레이션 웹.
+            <div class="game-action">
+              <a
+                class="play"
+                href="https://gamchigam-afk.github.io/D-day/"
+                target="_blank"
+              >
+                실행 →
+              </a>
             </div>
 
-            <div class="site-info">
+          </article>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- BETA -->
+      <section
+        class="section project-section"
+        data-category="beta"
+      >
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-title">베타 버전</div>
+            <div class="section-sub">BETA</div>
+          </div>
+
+          <div class="section-count">3 PROJECTS</div>
+
+        </div>
+
+
+        <div class="library">
+
+          <article class="game">
+
+            <div class="game-cover cover-invest">
+              LAB
+            </div>
+
+            <div class="game-info">
+
+              <div class="game-title">Invest Lab</div>
+
+              <div class="game-desc">
+                가상의 자산을 이용해 투자 과정을 체험하고 다양한 시장 상황을 연습할 수 있는 투자 시뮬레이션 웹.
+              </div>
+
+              <div class="tags">
                 <span class="tag">INVEST</span>
                 <span class="tag">SIMULATION</span>
                 <span class="tag">BETA</span>
-            </div>
+              </div>
 
-            <div class="site-bottom">
-
-                <span
-                    class="status"
-                    style="color:#5b9cff;"
-                >
-                    ● 베타 테스트
-                </span>
-
-                <a
-                    class="go"
-                    href="https://gamchigam-afk.github.io/jusik/"
-                >
-                    바로가기 →
-                </a>
+              <div class="status beta">
+                ● 베타 테스트
+              </div>
 
             </div>
 
-        </article>
-
-
-        <!-- Theme RNG -->
-
-        <article class="site-card">
-
-            <div class="site-icon">🎨</div>
-
-            <h3>테마 뽑기</h3>
-
-            <div class="site-description">
-                다양한 테마를 랜덤으로 획득하고
-                새로운 디자인과 효과를 확인할 수 있는 테마 뽑기 프로젝트.
+            <div class="game-action">
+              <a
+                class="play"
+                href="https://gamchigam-afk.github.io/jusik/"
+                target="_blank"
+              >
+                실행 →
+              </a>
             </div>
 
-            <div class="site-info">
+          </article>
+
+
+          <article class="game">
+
+            <div class="game-cover cover-theme">
+              RNG
+            </div>
+
+            <div class="game-info">
+
+              <div class="game-title">테마 뽑기</div>
+
+              <div class="game-desc">
+                다양한 테마를 랜덤으로 획득하고 새로운 디자인과 효과를 확인할 수 있는 테마 뽑기 프로젝트.
+              </div>
+
+              <div class="tags">
                 <span class="tag">RNG</span>
                 <span class="tag">THEME</span>
                 <span class="tag">BETA</span>
-            </div>
+              </div>
 
-            <div class="site-bottom">
-
-                <span
-                    class="status"
-                    style="color:#5b9cff;"
-                >
-                    ● 베타 테스트
-                </span>
-
-                <a
-                    class="go"
-                    href="https://gamchigam-afk.github.io/THEME-RNG/"
-                >
-                    바로가기 →
-                </a>
+              <div class="status beta">
+                ● 베타 테스트
+              </div>
 
             </div>
 
-        </article>
-
-
-        <!-- Mine -->
-
-        <article class="site-card">
-
-            <div class="site-icon">⛏️</div>
-
-            <h3>Mine</h3>
-
-            <div class="site-description">
-                지층을 탐사하고 광물을 채굴하며
-                장비와 기계를 업그레이드하는 채굴 시뮬레이션 프로젝트.
+            <div class="game-action">
+              <a
+                class="play"
+                href="https://gamchigam-afk.github.io/THEME-RNG/"
+                target="_blank"
+              >
+                실행 →
+              </a>
             </div>
 
-            <div class="site-info">
+          </article>
+
+
+          <article class="game">
+
+            <div class="game-cover cover-mine">
+              MINE
+            </div>
+
+            <div class="game-info">
+
+              <div class="game-title">Mine</div>
+
+              <div class="game-desc">
+                지층을 탐사하고 광물을 채굴하며 장비와 기계를 업그레이드하는 채굴 시뮬레이션 프로젝트.
+              </div>
+
+              <div class="tags">
                 <span class="tag">MINING</span>
                 <span class="tag">SIMULATION</span>
                 <span class="tag">BETA</span>
-            </div>
+              </div>
 
-            <div class="site-bottom">
-
-                <span
-                    class="status"
-                    style="color:#5b9cff;"
-                >
-                    ● 베타 테스트
-                </span>
-
-                <a
-                    class="go"
-                    href="https://gamchigam-afk.github.io/Mine/"
-                >
-                    바로가기 →
-                </a>
+              <div class="status beta">
+                ● 베타 테스트
+              </div>
 
             </div>
 
-        </article>
+            <div class="game-action">
+              <a
+                class="play"
+                href="https://gamchigam-afk.github.io/Mine/"
+                target="_blank"
+              >
+                실행 →
+              </a>
+            </div>
 
-    </div>
+          </article>
 
-</section>
+        </div>
 
-
-<!-- ================================================= -->
-<!-- ALPHA -->
-<!-- ================================================= -->
-
-<section class="section">
-
-    <div class="section-header">
-        <h2>알파 버전</h2>
-        <span>ALPHA</span>
-    </div>
-
-    <div class="site-grid">
+      </section>
 
 
-        <!-- Operation Building -->
 
-        <article class="site-card">
+      <!-- ALPHA -->
+      <section
+        class="section project-section"
+        data-category="alpha"
+      >
 
-            <div class="site-icon">🎯</div>
+        <div class="section-header">
 
-            <h3>Operation Building</h3>
+          <div>
+            <div class="section-title">알파 버전</div>
+            <div class="section-sub">ALPHA</div>
+          </div>
 
-            <div class="site-description">
+          <div class="section-count">1 PROJECT</div>
+
+        </div>
+
+
+        <div class="library">
+
+          <article class="game">
+
+            <div class="game-cover cover-fps">
+              FPS
+            </div>
+
+            <div class="game-info">
+
+              <div class="game-title">
+                Operation Building
+              </div>
+
+              <div class="game-desc">
                 브라우저에서 플레이하는 FPS 슈팅 프로젝트.
                 건물 내부를 중심으로 전투를 진행합니다.
-            </div>
+              </div>
 
-            <div class="site-info">
+              <div class="tags">
                 <span class="tag">FPS</span>
                 <span class="tag">ACTION</span>
                 <span class="tag">ALPHA</span>
-            </div>
+              </div>
 
-            <div class="site-bottom">
-
-                <span
-                    class="status"
-                    style="color:#ffae52;"
-                >
-                    ● 알파 개발
-                </span>
-
-                <a
-                    class="go"
-                    href="https://gamchigam-afk.github.io/fps-alpha-ver/"
-                >
-                    바로가기 →
-                </a>
+              <div class="status alpha">
+                ● 알파 개발
+              </div>
 
             </div>
 
-        </article>
+            <div class="game-action">
+              <a
+                class="play"
+                href="https://gamchigam-afk.github.io/fps-alpha-ver/"
+                target="_blank"
+              >
+                실행 →
+              </a>
+            </div>
+
+          </article>
 
 
-        <div class="empty-card"></div>
+          <div class="empty">
+            새로운 프로젝트를 기다리는 중...
+          </div>
 
-        <div class="empty-card"></div>
+        </div>
+
+      </section>
+
+
+      <!-- PATCH -->
+      <section
+        class="patch-section"
+        id="patch"
+      >
+
+        <div class="section-header">
+
+          <div>
+            <div class="section-title">패치 노트</div>
+            <div class="section-sub">PATCH NOTES</div>
+          </div>
+
+        </div>
+
+
+        <div class="patch-grid">
+
+
+          <article class="patch">
+            <div class="patch-type">HUB PATCH · v0.8</div>
+            <h3>WEB HUB 0.8v 출시</h3>
+            <p>
+              WEB HUB UI를 게임 런처와 라이브러리 스타일로 전면 개편.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">UI OVERHAUL</div>
+            <h3>라이브러리 UI 개편</h3>
+            <p>
+              프로젝트를 가로형 게임 라이브러리 목록으로 표시하도록 변경.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">NAVIGATION</div>
+            <h3>사이드바 추가</h3>
+            <p>
+              정식, 베타, 알파 프로젝트를 사이드바에서 빠르게 확인할 수 있도록 개선.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">SEARCH</div>
+            <h3>프로젝트 검색</h3>
+            <p>
+              프로젝트 이름을 입력해 라이브러리에서 원하는 프로젝트를 빠르게 찾을 수 있습니다.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">HUB PATCH · v0.7</div>
+            <h3>WEB HUB 0.7v 출시</h3>
+            <p>
+              새로운 정식 프로젝트 D-day를 등록.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">RELEASE UPDATE</div>
+            <h3>D-day 정식 출시</h3>
+            <p>
+              D-day 프로젝트를 정식 출시 영역에 추가하고 바로가기를 연결.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">RELEASE EXPANSION</div>
+            <h3>정식 프로젝트 4종</h3>
+            <p>
+              CoinLab, VANTAGE, 5초 준다!, D-day로 정식 프로젝트 라인업을 확장.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">HUB PATCH · v0.6</div>
+            <h3>WEB HUB 0.6v 출시</h3>
+            <p>
+              새로운 베타 프로젝트 Mine을 등록.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">BETA RELEASE</div>
+            <h3>Mine 베타 등록</h3>
+            <p>
+              Mine 프로젝트를 베타 버전에 추가하고 프로젝트 바로가기를 연결.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">HUB PATCH · v0.5</div>
+            <h3>WEB HUB 0.5v 출시</h3>
+            <p>
+              테마 뽑기 프로젝트를 알파에서 베타 버전으로 승급.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">HUB PATCH · v0.4</div>
+            <h3>WEB HUB 0.4v 출시</h3>
+            <p>
+              새로운 정식 프로젝트 5초 준다! 모바일 버전을 등록.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">HUB PATCH · v0.3</div>
+            <h3>WEB HUB 0.3v 출시</h3>
+            <p>
+              프로젝트 주소를 최신 주소로 업데이트하고 테마 뽑기를 알파 프로젝트로 등록.
+            </p>
+          </article>
+
+
+          <article class="patch">
+            <div class="patch-type">HUB PATCH · v0.2</div>
+            <h3>WEB HUB 0.2v 출시</h3>
+            <p>
+              정식, 베타, 알파 프로젝트를 버전별로 구분하고 프로젝트 바로가기를 추가.
+            </p>
+          </article>
+
+        </div>
+
+      </section>
 
     </div>
 
-</section>
 
+    <footer>
+      WEB HUB v0.8 · PROJECT LIBRARY
+    </footer>
 
-<!-- ================================================= -->
-<!-- PATCH NOTES -->
-<!-- ================================================= -->
+  </main>
 
-<section class="patch-section">
+</div>
 
-    <div class="section-header">
 
-        <h2>패치</h2>
+<script>
 
-        <span>
-            PATCH NOTES
-        </span>
+/* =========================
+   SIDEBAR FILTER
+========================= */
 
-    </div>
+const navItems = document.querySelectorAll(".nav-item");
+const sections = document.querySelectorAll(".project-section");
 
+navItems.forEach(item => {
 
-    <div class="patch-grid">
+  item.addEventListener("click", () => {
 
+    const filter = item.dataset.filter;
+    const scroll = item.dataset.scroll;
 
-        <!-- v0.7 -->
+    if(scroll){
+      document
+        .getElementById(scroll)
+        .scrollIntoView({
+          behavior:"smooth"
+        });
+      return;
+    }
 
-        <article class="patch-card">
+    navItems.forEach(n =>
+      n.classList.remove("active")
+    );
 
-            <div class="patch-label">
-                HUB PATCH · v0.7
-            </div>
+    item.classList.add("active");
 
-            <h3>
-                WEB HUB 0.7v 출시
-            </h3>
+    sections.forEach(section => {
 
-            <p>
-                WEB HUB 0.7v 출시.
-                새로운 정식 프로젝트
-                D-day를 등록.
-            </p>
+      if(filter === "all"){
+        section.style.display = "";
+      }
+      else{
+        section.style.display =
+          section.dataset.category === filter
+            ? ""
+            : "none";
+      }
 
-        </article>
+    });
 
+  });
 
-        <!-- D-day -->
+});
 
-        <article class="patch-card">
 
-            <div class="patch-label">
-                RELEASE UPDATE
-            </div>
+/* =========================
+   SEARCH
+========================= */
 
-            <h3>
-                D-day 정식 출시
-            </h3>
+const search = document.getElementById("search");
+const games = document.querySelectorAll(".game");
 
-            <p>
-                D-day 프로젝트를
-                정식 출시 영역에 추가하고
-                바로가기를 연결.
-            </p>
+search.addEventListener("input", () => {
 
-        </article>
+  const keyword =
+    search.value
+      .trim()
+      .toLowerCase();
 
+  games.forEach(game => {
 
-        <!-- Release Expansion -->
+    const text =
+      game.innerText.toLowerCase();
 
-        <article class="patch-card">
+    game.classList.toggle(
+      "hidden",
+      keyword &&
+      !text.includes(keyword)
+    );
 
-            <div class="patch-label">
-                RELEASE EXPANSION
-            </div>
+  });
 
-            <h3>
-                정식 프로젝트 4종
-            </h3>
+});
 
-            <p>
-                CoinLab, VANTAGE,
-                5초 준다!, D-day로
-                정식 프로젝트 라인업을 확장.
-            </p>
 
-        </article>
+/* =========================
+   ACTIVE NAV ON SCROLL
+========================= */
 
+window.addEventListener("scroll", () => {
 
-        <!-- v0.6 -->
+  const patch =
+    document.getElementById("patch");
 
-        <article class="patch-card">
-
-            <div class="patch-label">
-                HUB PATCH · v0.6
-            </div>
-
-            <h3>
-                WEB HUB 0.6v 출시
-            </h3>
-
-            <p>
-                새로운 베타 프로젝트
-                Mine을 등록.
-            </p>
-
-        </article>
-
-
-        <!-- Mine -->
-
-        <article class="patch-card">
-
-            <div class="patch-label">
-                BETA RELEASE
-            </div>
-
-            <h3>
-                Mine 베타 등록
-            </h3>
-
-            <p>
-                Mine 프로젝트를
-                베타 버전에 추가하고
-                프로젝트 바로가기를 연결.
-            </p>
-
-        </article>
-
-
-        <!-- v0.5 -->
-
-        <article class="patch-card">
-
-            <div class="patch-label">
-                HUB PATCH · v0.5
-            </div>
-
-            <h3>
-                WEB HUB 0.5v 출시
-            </h3>
-
-            <p>
-                테마 뽑기 프로젝트를
-                알파에서 베타 버전으로
-                승급.
-            </p>
-
-        </article>
-
-
-        <!-- v0.4 -->
-
-        <article class="patch-card">
-
-            <div class="patch-label">
-                HUB PATCH · v0.4
-            </div>
-
-            <h3>
-                WEB HUB 0.4v 출시
-            </h3>
-
-            <p>
-                새로운 정식 프로젝트
-                5초 준다! 모바일 버전을
-                등록.
-            </p>
-
-        </article>
-
-
-        <!-- v0.3 -->
-
-        <article class="patch-card">
-
-            <div class="patch-label">
-                HUB PATCH · v0.3
-            </div>
-
-            <h3>
-                WEB HUB 0.3v 출시
-            </h3>
-
-            <p>
-                프로젝트 주소를 최신 주소로
-                업데이트하고 테마 뽑기를
-                알파 프로젝트로 등록.
-            </p>
-
-        </article>
-
-
-        <!-- v0.2 -->
-
-        <article class="patch-card">
-
-            <div class="patch-label">
-                HUB PATCH · v0.2
-            </div>
-
-            <h3>
-                WEB HUB 0.2v 출시
-            </h3>
-
-            <p>
-                정식, 베타, 알파 프로젝트를
-                버전별로 구분하고
-                프로젝트 바로가기를 추가.
-            </p>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-</main>
-
-
-<footer>
-
-    WEB HUB v0.7<br>
-    A central portal for web projects.
-
-</footer>
+  if(
+    window.scrollY +
+    window.innerHeight >
+    patch.offsetTop
+  ){
+    navItems.forEach(n =>
+      n.classList.remove("active")
+    );
+  }
+
+});
+
+</script>
 
 </body>
 </html>
