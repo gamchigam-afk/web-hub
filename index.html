@@ -10,16 +10,13 @@
   --blue:#1769e0;
   --blue2:#4b8ff5;
   --blue-soft:#eaf2ff;
-
   --bg:#f4f6f9;
   --white:#ffffff;
   --panel:#ffffff;
   --panel2:#f8fafc;
-
   --text:#151922;
   --text2:#3e4652;
   --muted:#7d8795;
-
   --line:#e3e7ed;
   --shadow:0 8px 30px rgba(20,35,55,.08);
 }
@@ -352,7 +349,6 @@ body{
 
 .main{
   min-width:0;
-
   padding:30px;
 }
 
@@ -619,6 +615,142 @@ body{
 }
 
 /* =========================
+   ANYWAY COMPANY CARD
+========================= */
+
+.company-card{
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:25px;
+
+  margin-top:30px;
+  padding:26px 28px;
+
+  background:#fff;
+
+  border:1px solid var(--line);
+  border-radius:15px;
+
+  text-decoration:none;
+  color:var(--text);
+
+  overflow:hidden;
+
+  box-shadow:0 5px 20px rgba(20,35,55,.05);
+
+  transition:
+    transform .2s,
+    box-shadow .2s,
+    border-color .2s;
+}
+
+.company-card::after{
+  content:"";
+
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  right:-70px;
+  top:-80px;
+
+  border-radius:50%;
+
+  background:var(--blue-soft);
+
+  z-index:0;
+}
+
+.company-card:hover{
+  transform:translateY(-3px);
+
+  border-color:#c9dcfb;
+
+  box-shadow:0 12px 30px rgba(20,35,55,.1);
+}
+
+.company-card-left{
+  position:relative;
+  z-index:1;
+
+  display:flex;
+  align-items:center;
+
+  gap:15px;
+}
+
+.company-card-logo{
+  width:54px;
+  height:54px;
+
+  object-fit:contain;
+
+  border-radius:11px;
+
+  background:#fff;
+
+  border:1px solid var(--line);
+}
+
+.company-card-text{
+  display:flex;
+  flex-direction:column;
+}
+
+.company-card-label{
+  margin-bottom:5px;
+
+  font-size:8px;
+  font-weight:900;
+
+  letter-spacing:1.7px;
+
+  color:var(--blue);
+}
+
+.company-card-title{
+  font-size:19px;
+  font-weight:900;
+
+  letter-spacing:-.5px;
+}
+
+.company-card-desc{
+  margin-top:5px;
+
+  font-size:10px;
+  line-height:1.5;
+
+  color:var(--muted);
+}
+
+.company-card-arrow{
+  position:relative;
+  z-index:1;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  min-width:42px;
+  height:42px;
+
+  border-radius:10px;
+
+  background:var(--blue);
+
+  color:#fff;
+
+  font-size:17px;
+  font-weight:900;
+}
+
+/* =========================
    SECTIONS
 ========================= */
 
@@ -793,7 +925,6 @@ footer{
 
   .topbar{
     height:64px;
-
     padding:0 16px;
   }
 
@@ -840,7 +971,6 @@ footer{
 
   .hero-content{
     min-height:470px;
-
     padding:32px 25px;
   }
 
@@ -857,9 +987,17 @@ footer{
     padding-left:43px;
   }
 
+  .company-card{
+    align-items:flex-start;
+  }
+
+  .company-card-arrow{
+    min-width:38px;
+    height:38px;
+  }
+
   footer{
     grid-template-columns:1fr;
-
     text-align:center;
   }
 
@@ -896,6 +1034,23 @@ footer{
 
   .hero-desc{
     font-size:12px;
+  }
+
+  .company-card{
+    padding:20px;
+  }
+
+  .company-card-logo{
+    width:45px;
+    height:45px;
+  }
+
+  .company-card-title{
+    font-size:16px;
+  }
+
+  .company-card-desc{
+    font-size:9px;
   }
 
   .activity{
@@ -964,7 +1119,7 @@ footer{
 
 
 <!-- =========================
-     MAIN LAYOUT
+     LAYOUT
 ========================= -->
 
 <div class="layout">
@@ -1127,6 +1282,50 @@ footer{
     </div>
 
 
+    <!-- =========================
+         ANYWAY CORPORATION
+    ========================= -->
+
+    <a
+      class="company-card"
+      href="https://gamchigam-afk.github.io/anyway/"
+      target="_blank"
+      rel="noopener"
+    >
+
+      <div class="company-card-left">
+
+        <img
+          src="logo.png"
+          class="company-card-logo"
+          alt="ANYWAY CORPORATION"
+        >
+
+        <div class="company-card-text">
+
+          <div class="company-card-label">
+            COMPANY
+          </div>
+
+          <div class="company-card-title">
+            ANYWAY CORPORATION
+          </div>
+
+          <div class="company-card-desc">
+            아무튼 주식회사와 다양한 프로젝트를 소개합니다.
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="company-card-arrow">
+        →
+      </div>
+
+    </a>
+
+
     <!-- RECENT ACTIVITY -->
 
     <section class="section">
@@ -1254,8 +1453,6 @@ footer{
     </section>
 
 
-    <!-- COMMUNITY ANCHOR -->
-
     <div id="community"></div>
 
 
@@ -1382,7 +1579,7 @@ const projects = {
 
 
 /* =========================
-   SIDEBAR ORDER
+   PROJECT ORDER
 ========================= */
 
 const projectOrder = [
@@ -1434,7 +1631,7 @@ const heroBg =
 
 
 /* =========================
-   RENDER SIDEBAR
+   SIDEBAR RENDER
 ========================= */
 
 function renderProjects(filter="all", search=""){
@@ -1446,11 +1643,11 @@ function renderProjects(filter="all", search=""){
 
   projectOrder.forEach(id=>{
 
-    const p = projects[id];
+    const p=projects[id];
 
     if(
-      filter !== "all" &&
-      p.type.toLowerCase() !== filter
+      filter!=="all" &&
+      p.type.toLowerCase()!==filter
     ){
       return;
     }
@@ -1463,7 +1660,7 @@ function renderProjects(filter="all", search=""){
       return;
     }
 
-    const item =
+    const item=
       document.createElement("button");
 
     item.className="project-item";
@@ -1526,7 +1723,7 @@ function selectProject(id){
 
   p.tags.forEach(tag=>{
 
-    const span =
+    const span=
       document.createElement("span");
 
     span.className="tag";
@@ -1591,7 +1788,7 @@ document
 
         btn.classList.add("active");
 
-        currentFilter =
+        currentFilter=
           btn.dataset.filter;
 
         renderProjects(
@@ -1606,7 +1803,7 @@ document
 
 
 /* =========================
-   INITIALIZE
+   INIT
 ========================= */
 
 renderProjects();
@@ -1616,4 +1813,4 @@ selectProject("coinlab");
 </script>
 
 </body>
-  </html>
+</html>
