@@ -18,22 +18,17 @@
   --panel:#111722;
   --panel2:#151c28;
   --panel3:#0c1119;
-
   --text:#f2f5f9;
   --text2:#b8c1ce;
   --muted:#707b8b;
-
   --blue:#4d8dff;
   --blue2:#76aaff;
   --blue-soft:rgba(77,141,255,.12);
-
   --line:#222c3a;
   --line2:#2d3949;
-
   --green:#58d68d;
   --yellow:#e9c65b;
   --red:#e66d75;
-
   --shadow:0 12px 40px rgba(0,0,0,.35);
 }
 
@@ -48,7 +43,6 @@ body{
     "Noto Sans KR",
     Arial,
     sans-serif;
-
   background:
     radial-gradient(
       circle at 50% -20%,
@@ -56,7 +50,6 @@ body{
       transparent 35%
     ),
     var(--bg);
-
   color:var(--text);
   min-height:100vh;
 }
@@ -71,25 +64,19 @@ input{
   font:inherit;
 }
 
-/* =========================
-   TOPBAR
-========================= */
+/* TOPBAR */
 
 .topbar{
   height:72px;
   position:sticky;
   top:0;
   z-index:100;
-
   display:flex;
   align-items:center;
   gap:28px;
-
   padding:0 28px;
-
   background:rgba(9,13,20,.88);
   backdrop-filter:blur(18px);
-
   border-bottom:1px solid var(--line);
 }
 
@@ -136,12 +123,10 @@ input{
 .nav a{
   padding:10px 13px;
   border-radius:7px;
-
   color:var(--muted);
   font-size:12px;
   font-weight:700;
   letter-spacing:.8px;
-
   transition:.2s;
 }
 
@@ -160,15 +145,11 @@ input{
 .search input{
   width:100%;
   height:38px;
-
   padding:0 13px 0 38px;
-
   border:1px solid var(--line);
   border-radius:7px;
-
   background:#0c1119;
   color:var(--text);
-
   outline:none;
 }
 
@@ -181,13 +162,10 @@ input{
   left:13px;
   top:50%;
   transform:translateY(-50%);
-
   color:var(--muted);
 }
 
-/* =========================
-   LAYOUT
-========================= */
+/* LAYOUT */
 
 .layout{
   display:grid;
@@ -195,27 +173,20 @@ input{
   min-height:calc(100vh - 72px);
 }
 
-/* =========================
-   SIDEBAR
-========================= */
+/* SIDEBAR */
 
 .sidebar{
   border-right:1px solid var(--line);
   background:#0b1018;
-
   padding:25px 14px;
-
   position:sticky;
   top:72px;
-
   height:calc(100vh - 72px);
 }
 
 .side-title{
   padding:0 11px;
-
   color:var(--muted);
-
   font-size:9px;
   font-weight:800;
   letter-spacing:1.8px;
@@ -227,19 +198,13 @@ input{
 
 .side-item{
   width:100%;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   padding:11px;
-
   border-radius:7px;
-
   color:var(--text2);
-
   font-size:12px;
-
   cursor:pointer;
   transition:.2s;
 }
@@ -259,9 +224,7 @@ input{
   font-size:10px;
 }
 
-/* =========================
-   MAIN
-========================= */
+/* MAIN */
 
 .main{
   min-width:0;
@@ -272,24 +235,17 @@ input{
   display:none;
 }
 
-/* =========================
-   WEB HUB HERO
-========================= */
+/* HERO */
 
 .hero{
   position:relative;
   overflow:hidden;
-
   min-height:300px;
-
   display:flex;
   align-items:flex-end;
-
   padding:34px;
-
   border:1px solid var(--line);
   border-radius:12px;
-
   background:
     linear-gradient(
       120deg,
@@ -301,32 +257,24 @@ input{
       #151d2a,
       #0e141e
     );
-
   box-shadow:var(--shadow);
 }
 
 .hero::after{
   content:"";
-
   position:absolute;
-
   width:360px;
   height:360px;
-
   right:-120px;
   top:-160px;
-
   border-radius:50%;
-
   background:rgba(77,141,255,.08);
-
   filter:blur(10px);
 }
 
 .hero-content{
   position:relative;
   z-index:2;
-
   max-width:680px;
 }
 
@@ -334,11 +282,8 @@ input{
   display:inline-flex;
   align-items:center;
   gap:7px;
-
   margin-bottom:14px;
-
   color:var(--blue2);
-
   font-size:10px;
   font-weight:800;
   letter-spacing:1.3px;
@@ -347,15 +292,12 @@ input{
 .hero-title{
   font-size:42px;
   letter-spacing:-1.5px;
-
   margin-bottom:12px;
 }
 
 .hero-desc{
   max-width:620px;
-
   color:var(--text2);
-
   font-size:14px;
   line-height:1.7;
 }
@@ -364,20 +306,15 @@ input{
   display:flex;
   flex-wrap:wrap;
   gap:7px;
-
   margin-top:20px;
 }
 
 .tag{
   padding:6px 9px;
-
   border:1px solid var(--line2);
   border-radius:5px;
-
   color:var(--muted);
-
   background:rgba(0,0,0,.12);
-
   font-size:9px;
   font-weight:800;
   letter-spacing:.7px;
@@ -387,19 +324,14 @@ input{
   display:inline-flex;
   align-items:center;
   gap:9px;
-
   margin-top:24px;
   padding:11px 17px;
-
   border-radius:6px;
-
   background:var(--blue);
   color:white;
-
   font-size:11px;
   font-weight:800;
   letter-spacing:.5px;
-
   transition:.2s;
 }
 
@@ -408,9 +340,7 @@ input{
   transform:translateY(-1px);
 }
 
-/* =========================
-   SECTION
-========================= */
+/* SECTION */
 
 .section{
   margin-top:38px;
@@ -420,7 +350,6 @@ input{
   display:flex;
   justify-content:space-between;
   align-items:flex-end;
-
   margin-bottom:15px;
 }
 
@@ -431,53 +360,38 @@ input{
 
 .section-sub{
   margin-top:5px;
-
   color:var(--muted);
-
   font-size:10px;
   letter-spacing:1px;
 }
 
-/* =========================
-   PROJECT GRID
-========================= */
+/* PROJECT GRID */
 
 .project-grid{
   display:grid;
   grid-template-columns:
     repeat(3,minmax(0,1fr));
-
   gap:13px;
 }
 
 .project-card{
   min-height:190px;
-
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-
   padding:19px;
-
   border:1px solid var(--line);
   border-radius:9px;
-
   background:var(--panel);
-
   cursor:pointer;
-
   transition:.2s;
 }
 
 .project-card:hover{
   transform:translateY(-3px);
-
   border-color:#34445b;
-
   background:#141c28;
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.25);
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
 }
 
 .project-top{
@@ -516,9 +430,7 @@ input{
 
 .project-desc{
   margin-top:8px;
-
   color:var(--text2);
-
   font-size:11px;
   line-height:1.6;
 }
@@ -526,43 +438,30 @@ input{
 .project-tags{
   display:flex;
   flex-wrap:wrap;
-
   gap:5px;
-
   margin-top:15px;
 }
 
 .project-tags span{
   padding:4px 6px;
-
   border-radius:4px;
-
   background:#0c1119;
-
   border:1px solid var(--line);
-
   color:var(--muted);
-
   font-size:8px;
   font-weight:700;
 }
 
-/* =========================
-   COMPANY BAR
-========================= */
+/* COMPANY BAR */
 
 .company-bar{
   margin-top:35px;
-
   padding:15px 17px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   border:1px solid var(--line);
   border-radius:8px;
-
   background:#0d131c;
 }
 
@@ -575,11 +474,8 @@ input{
 .company-mini-logo{
   width:31px;
   height:31px;
-
   object-fit:contain;
-
   border-radius:6px;
-
   background:white;
   padding:2px;
 }
@@ -597,7 +493,6 @@ input{
 
 .company-service span{
   color:var(--muted);
-
   font-size:8px;
   letter-spacing:1.2px;
 }
@@ -607,22 +502,16 @@ input{
   font-size:9px;
 }
 
-/* =========================
-   COMPANY CARD
-========================= */
+/* COMPANY */
 
 .company-card{
   margin-top:13px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   padding:21px;
-
   border:1px solid var(--line);
   border-radius:9px;
-
   background:
     linear-gradient(
       100deg,
@@ -630,7 +519,6 @@ input{
       transparent
     ),
     var(--panel);
-
   transition:.2s;
 }
 
@@ -648,18 +536,14 @@ input{
 .company-card-logo{
   width:51px;
   height:51px;
-
   object-fit:contain;
-
   border-radius:9px;
-
   background:#fff;
   padding:4px;
 }
 
 .company-card-label{
   color:var(--blue2);
-
   font-size:8px;
   font-weight:800;
   letter-spacing:1.8px;
@@ -667,16 +551,13 @@ input{
 
 .company-card-title{
   margin-top:4px;
-
   font-size:17px;
   font-weight:800;
 }
 
 .company-card-desc{
   margin-top:5px;
-
   color:var(--muted);
-
   font-size:10px;
 }
 
@@ -685,24 +566,19 @@ input{
   font-size:22px;
 }
 
-/* =========================
-   RECENT ACTIVITY
-========================= */
+/* RECENT ACTIVITY */
 
 .activity-list{
   display:grid;
   grid-template-columns:
     repeat(4,minmax(0,1fr));
-
   gap:10px;
 }
 
 .activity{
   padding:15px;
-
   border:1px solid var(--line);
   border-radius:7px;
-
   background:var(--panel);
 }
 
@@ -713,26 +589,18 @@ input{
 
 .activity-date{
   margin-top:7px;
-
   color:var(--muted);
-
   font-size:9px;
 }
 
-/* =========================
-   PROJECT 묘지
-========================= */
+/* CEMETERY */
 
 .cemetery{
   position:relative;
-
   margin-top:48px;
-
   padding:27px 23px 31px;
-
   border:1px solid #252d38;
   border-radius:11px;
-
   background:
     linear-gradient(
       180deg,
@@ -740,21 +608,16 @@ input{
       transparent
     ),
     #0c1118;
-
   overflow:hidden;
 }
 
 .cemetery::before{
   content:"";
-
   position:absolute;
-
   left:0;
   right:0;
   top:0;
-
   height:1px;
-
   background:
     linear-gradient(
       90deg,
@@ -768,7 +631,6 @@ input{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
-
   margin-bottom:21px;
 }
 
@@ -776,7 +638,6 @@ input{
   display:flex;
   align-items:center;
   gap:10px;
-
   font-size:18px;
   letter-spacing:1px;
 }
@@ -788,42 +649,32 @@ input{
 
 .cemetery-sub{
   margin-top:6px;
-
   color:#697482;
-
   font-size:9px;
   letter-spacing:1.5px;
 }
 
 .cemetery-count{
   color:#596370;
-
   font-size:9px;
   letter-spacing:1px;
 }
 
 .cemetery-ground{
   position:relative;
-
   display:grid;
-
   grid-template-columns:
     repeat(3,minmax(0,1fr));
-
   gap:16px;
 }
 
 .cemetery-ground::after{
   content:"";
-
   position:absolute;
-
   left:0;
   right:0;
   bottom:-31px;
-
   height:30px;
-
   background:
     radial-gradient(
       ellipse at center,
@@ -834,20 +685,13 @@ input{
 
 .tomb{
   position:relative;
-
   min-height:235px;
-
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
-
   padding:22px 19px 18px;
-
   border:1px solid #252e3a;
-
-  border-radius:
-    8px 8px 5px 5px;
-
+  border-radius:8px 8px 5px 5px;
   background:
     linear-gradient(
       180deg,
@@ -855,56 +699,41 @@ input{
       rgba(255,255,255,.008)
     ),
     #111720;
-
   overflow:hidden;
-
   transition:.2s;
 }
 
 .tomb:hover{
   transform:translateY(-3px);
-
   border-color:#394655;
 }
 
 .tomb::before{
   content:"";
-
   position:absolute;
-
   width:82%;
   height:62%;
-
   left:9%;
   top:12%;
-
   border:1px solid #293341;
   border-bottom:none;
-
   border-radius:48% 48% 0 0;
-
   opacity:.55;
 }
 
 .tomb-symbol{
   position:absolute;
-
   top:24px;
   left:50%;
-
   transform:translateX(-50%);
-
   color:#737e8d;
-
   font-size:25px;
-
   z-index:2;
 }
 
 .tomb-content{
   position:relative;
   z-index:3;
-
   text-align:center;
 }
 
@@ -916,9 +745,7 @@ input{
 
 .tomb-status{
   margin-top:5px;
-
   color:#737e8d;
-
   font-size:8px;
   font-weight:800;
   letter-spacing:1.3px;
@@ -927,20 +754,15 @@ input{
 .tomb-info{
   margin-top:18px;
   padding-top:13px;
-
   border-top:1px solid #252e39;
-
   text-align:left;
 }
 
 .tomb-row{
   display:flex;
   gap:8px;
-
   margin-top:7px;
-
   color:#8d97a5;
-
   font-size:9px;
   line-height:1.5;
 }
@@ -951,11 +773,8 @@ input{
 
 .tomb-label{
   flex:none;
-
   width:55px;
-
   color:#5e6977;
-
   font-weight:800;
 }
 
@@ -965,15 +784,10 @@ input{
 
 .tomb-link{
   display:inline-block;
-
   margin-top:13px;
-
   color:#70819a;
-
   font-size:9px;
-
-  border-bottom:
-    1px solid #394555;
+  border-bottom:1px solid #394555;
 }
 
 .tomb-link:hover{
@@ -992,17 +806,12 @@ input{
   color:#4f5864;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
   margin-top:45px;
-
   padding:27px 0 12px;
-
   border-top:1px solid var(--line);
-
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -1016,7 +825,6 @@ footer{
 
 .footer-service{
   color:var(--muted);
-
   font-size:9px;
   letter-spacing:1px;
 }
@@ -1026,9 +834,7 @@ footer{
   font-size:8px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media(max-width:1100px){
 
@@ -1059,9 +865,7 @@ footer{
   .topbar{
     height:auto;
     min-height:64px;
-
     padding:10px 14px;
-
     gap:12px;
   }
 
@@ -1101,35 +905,25 @@ footer{
 
   .mobile-filters{
     display:flex;
-
     gap:6px;
-
     margin-bottom:12px;
-
     overflow-x:auto;
   }
 
   .mobile-filters button{
     flex:none;
-
     padding:8px 11px;
-
     border:1px solid var(--line);
     border-radius:6px;
-
     background:var(--panel);
-
     color:var(--muted);
-
     font-size:9px;
     font-weight:800;
   }
 
   .mobile-filters button.active{
     color:var(--blue2);
-
     background:var(--blue-soft);
-
     border-color:
       rgba(77,141,255,.25);
   }
@@ -1209,10 +1003,6 @@ footer{
 
 <body>
 
-<!-- =========================
-     TOPBAR
-========================= -->
-
 <header class="topbar">
 
   <a href="#" class="company-brand">
@@ -1224,17 +1014,11 @@ footer{
     >
 
     <div class="company-name">
-
       <strong>ANYWAY</strong>
-
-      <span>
-        CORPORATION
-      </span>
-
+      <span>CORPORATION</span>
     </div>
 
   </a>
-
 
   <nav class="nav">
 
@@ -1251,7 +1035,6 @@ footer{
     </a>
 
   </nav>
-
 
   <div class="search">
 
@@ -1270,16 +1053,11 @@ footer{
 
 <div class="layout">
 
-  <!-- =========================
-       SIDEBAR
-  ========================= -->
-
   <aside class="sidebar">
 
     <div class="side-title">
       ANYWAY LIBRARY
     </div>
-
 
     <div class="side-group">
 
@@ -1287,67 +1065,35 @@ footer{
         class="side-item active"
         data-filter="all"
       >
-
-        <span>
-          WEB HUB PROJECTS
-        </span>
-
-        <span class="side-count">
-          7
-        </span>
-
+        <span>WEB HUB PROJECTS</span>
+        <span class="side-count">8</span>
       </div>
-
 
       <div
         class="side-item"
         data-filter="release"
       >
-
-        <span>
-          정식 출시
-        </span>
-
-        <span class="side-count">
-          4
-        </span>
-
+        <span>정식 출시</span>
+        <span class="side-count">4</span>
       </div>
-
 
       <div
         class="side-item"
         data-filter="beta"
       >
-
-        <span>
-          베타 버전
-        </span>
-
-        <span class="side-count">
-          2
-        </span>
-
+        <span>베타 버전</span>
+        <span class="side-count">2</span>
       </div>
-
 
       <div
         class="side-item"
         data-filter="alpha"
       >
-
-        <span>
-          알파 버전
-        </span>
-
-        <span class="side-count">
-          1
-        </span>
-
+        <span>알파 버전</span>
+        <span class="side-count">2</span>
       </div>
 
     </div>
-
 
     <div
       class="side-title"
@@ -1355,7 +1101,6 @@ footer{
     >
       ARCHIVE
     </div>
-
 
     <div class="side-group">
 
@@ -1367,15 +1112,8 @@ footer{
           .scrollIntoView({behavior:'smooth'})
         "
       >
-
-        <span>
-          PROJECT 묘지
-        </span>
-
-        <span class="side-count">
-          †
-        </span>
-
+        <span>PROJECT 묘지</span>
+        <span class="side-count">†</span>
       </div>
 
     </div>
@@ -1383,17 +1121,10 @@ footer{
   </aside>
 
 
-  <!-- =========================
-       MAIN
-  ========================= -->
-
   <main
     class="main"
     id="library"
   >
-
-
-    <!-- MOBILE FILTER -->
 
     <div class="mobile-filters">
 
@@ -1419,9 +1150,7 @@ footer{
     </div>
 
 
-    <!-- =========================
-         WEB HUB HERO
-    ========================= -->
+    <!-- WEB HUB 간판 -->
 
     <section class="hero">
 
@@ -1437,11 +1166,9 @@ footer{
 
         </div>
 
-
         <h1 class="hero-title">
           WEB HUB
         </h1>
-
 
         <p class="hero-desc">
 
@@ -1450,7 +1177,6 @@ footer{
           바로 실행할 수 있는 프로젝트 라이브러리.
 
         </p>
-
 
         <div class="hero-tags">
 
@@ -1468,7 +1194,6 @@ footer{
 
         </div>
 
-
         <a
           class="launch"
           href="#library"
@@ -1480,10 +1205,6 @@ footer{
 
     </section>
 
-
-    <!-- =========================
-         PROJECT LIBRARY
-    ========================= -->
 
     <section class="section">
 
@@ -1503,7 +1224,6 @@ footer{
 
       </div>
 
-
       <div
         class="project-grid"
         id="projectGrid"
@@ -1511,10 +1231,6 @@ footer{
 
     </section>
 
-
-    <!-- =========================
-         COMPANY BAR
-    ========================= -->
 
     <div class="company-bar">
 
@@ -1525,7 +1241,6 @@ footer{
           class="company-mini-logo"
           alt=""
         >
-
 
         <div class="company-service">
 
@@ -1541,17 +1256,12 @@ footer{
 
       </div>
 
-
       <div class="company-bar-right">
         ANYWAY CORPORATION · 2026
       </div>
 
     </div>
 
-
-    <!-- =========================
-         COMPANY
-    ========================= -->
 
     <section
       class="section"
@@ -1590,7 +1300,6 @@ footer{
             alt="ANYWAY CORPORATION"
           >
 
-
           <div class="company-card-text">
 
             <div class="company-card-label">
@@ -1609,7 +1318,6 @@ footer{
 
         </div>
 
-
         <div class="company-card-arrow">
           →
         </div>
@@ -1618,10 +1326,6 @@ footer{
 
     </section>
 
-
-    <!-- =========================
-         RECENT ACTIVITY
-    ========================= -->
 
     <section class="section">
 
@@ -1645,54 +1349,39 @@ footer{
       <div class="activity-list">
 
         <div class="activity">
-
           <div class="activity-name">
             CoinLab
           </div>
-
           <div class="activity-date">
             PROJECT UPDATED
           </div>
-
         </div>
 
-
         <div class="activity">
-
           <div class="activity-name">
             THEME RNG
           </div>
-
           <div class="activity-date">
             BETA DEVELOPMENT
           </div>
-
         </div>
 
-
         <div class="activity">
-
           <div class="activity-name">
             Mine
           </div>
-
           <div class="activity-date">
             PROJECT ARCHIVED
           </div>
-
         </div>
 
-
         <div class="activity">
-
           <div class="activity-name">
             Operation Building
           </div>
-
           <div class="activity-date">
             ALPHA DEVELOPMENT
           </div>
-
         </div>
 
       </div>
@@ -1700,9 +1389,7 @@ footer{
     </section>
 
 
-    <!-- =========================
-         PROJECT 묘지
-    ========================= -->
+    <!-- PROJECT 묘지 -->
 
     <section
       class="cemetery"
@@ -1723,13 +1410,11 @@ footer{
 
           </h2>
 
-
           <p class="cemetery-sub">
             ABANDONED PROJECT ARCHIVE
           </p>
 
         </div>
-
 
         <div class="cemetery-count">
           PROJECTS THAT REST HERE
@@ -1741,9 +1426,7 @@ footer{
       <div class="cemetery-ground">
 
 
-        <!-- =========================
-             MINE
-        ========================= -->
+        <!-- MINE -->
 
         <article class="tomb">
 
@@ -1751,18 +1434,15 @@ footer{
             †
           </div>
 
-
           <div class="tomb-content">
 
             <div class="tomb-name">
               MINE
             </div>
 
-
             <div class="tomb-status">
               PROJECT DECEASED
             </div>
-
 
             <div class="tomb-info">
 
@@ -1778,7 +1458,6 @@ footer{
 
               </div>
 
-
               <div class="tomb-row">
 
                 <span class="tomb-label">
@@ -1786,17 +1465,14 @@ footer{
                 </span>
 
                 <span class="tomb-reason">
-
                   개발자가 원본 코드를 날려버림.
                   (솔직히 말하자면 복구는 가능하지만,
                   그냥 별로여서 여기서 개발을 중단함.)
-
                 </span>
 
               </div>
 
             </div>
-
 
             <a
               class="tomb-link"
@@ -1812,9 +1488,7 @@ footer{
         </article>
 
 
-        <!-- =========================
-             EMPTY GRAVE
-        ========================= -->
+        <!-- EMPTY GRAVE -->
 
         <article class="tomb empty">
 
@@ -1822,18 +1496,15 @@ footer{
             †
           </div>
 
-
           <div class="tomb-content">
 
             <div class="tomb-name">
               EMPTY GRAVE
             </div>
 
-
             <div class="tomb-status">
               AWAITING RECORD
             </div>
-
 
             <div class="tomb-info">
 
@@ -1848,7 +1519,6 @@ footer{
                 </span>
 
               </div>
-
 
               <div class="tomb-row">
 
@@ -1869,9 +1539,7 @@ footer{
         </article>
 
 
-        <!-- =========================
-             EMPTY GRAVE
-        ========================= -->
+        <!-- EMPTY GRAVE -->
 
         <article class="tomb empty">
 
@@ -1879,18 +1547,15 @@ footer{
             †
           </div>
 
-
           <div class="tomb-content">
 
             <div class="tomb-name">
               EMPTY GRAVE
             </div>
 
-
             <div class="tomb-status">
               AWAITING RECORD
             </div>
-
 
             <div class="tomb-info">
 
@@ -1905,7 +1570,6 @@ footer{
                 </span>
 
               </div>
-
 
               <div class="tomb-row">
 
@@ -1930,10 +1594,6 @@ footer{
 
     </section>
 
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
 
     <footer>
 
@@ -2080,6 +1740,23 @@ const projects = [
     ],
     url:
       "https://gamchigam-afk.github.io/fps-alpha-ver/"
+  },
+
+
+  {
+    id:"8thsite",
+    name:"8번 출구",
+    category:"alpha",
+    status:"알파 개발",
+    desc:
+      "이상현상을 찾아내며 반복되는 통로를 탈출하는 관찰형 공포 웹 프로젝트.",
+    tags:[
+      "HORROR",
+      "ESCAPE",
+      "ALPHA"
+    ],
+    url:
+      "https://gamchigam-afk.github.io/8thsite/"
   }
 
 ];
@@ -2317,7 +1994,6 @@ function getCurrentFilter(){
       ".mobile-filters button.active"
     );
 
-
   return active
     ? active.dataset.filter
     : "all";
@@ -2334,4 +2010,4 @@ renderProjects("all");
 </script>
 
 </body>
-  </html>
+</html>
